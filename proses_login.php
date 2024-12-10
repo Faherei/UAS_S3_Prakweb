@@ -53,6 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_regenerate_id(true);
             $_SESSION['username'] = $username;
             $_SESSION['nama'] = $row_dosen['nama'];
+            $_SESSION['nid'] = $row_dosen['nid'];
+            $_SESSION['fakultas'] = $row_dosen['fakultas'];
+            $_SESSION['bio'] = $row_dosen['bio'];
+            $_SESSION['email'] = $row_dosen['email'];
+            $_SESSION['gmeet'] = $row_dosen['prodi'];
+            $_SESSION['profile'] = $row_dosen['profile'];
             $_SESSION['role'] = 'dosen'; // Simpan peran
             header("Location: views/home_dosen.php");
             exit();

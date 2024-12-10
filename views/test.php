@@ -36,8 +36,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     <link rel="stylesheet" type="text/css" href="../assets/css/test.css">
     <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       <script src="../assets/js/script_kalendar.js" defer></script>
 </head>
 <body>
@@ -85,7 +85,12 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div class="navigation">
                 <div class="logo">
                     <a href="../index.php">
-                        <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png" alt="Logo LeADS UPNVJ" >
+                        <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" >
+                    </a>
+                </div>
+                <div class="gmeet" style="border: 1px solid black;">
+                    <a href="">
+                        <button><i class="fa-sharp-duotone fa-thin fa-user"></i>Start New Meeting</button>
                     </a>
                 </div>
             </div>
