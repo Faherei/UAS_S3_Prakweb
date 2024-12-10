@@ -56,6 +56,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <h2><?php echo $nama?></h2>    
             </div>
             </div>
+            <!-- KALENDER -->
             <div class="kalender">
                 <div class="wrapper">
                     <header>
@@ -83,9 +84,9 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="content">
             <div class="navigation">
                 <div class="logo">
-                    <!-- <a href="../index.php">
+                    <a href="../index.php">
                         <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png" alt="Logo LeADS UPNVJ" >
-                    </a> -->
+                    </a>
                 </div>
             </div>
             <div class="chat">
