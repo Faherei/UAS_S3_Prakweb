@@ -20,7 +20,7 @@ include '../api/verif_dosen.php';
         <div style="text-align: center;">
             <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #ccc; margin: 0 auto;"></div>
             <h4>Profile</h4>
-            <a href="#">Information</a>
+            <a href="#">Informationns</a>
         </div>
     </div>
 
