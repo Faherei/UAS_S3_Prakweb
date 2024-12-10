@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
         <style data-merge-styles="true"></style>
         <style data-merge-styles="true"></style>
         <style data-merge-styles="true"></style>
-        <title>LeADS UPN Veteran Jakarta: Log in to the site</title>
+        <title>LeADS UPN Veteran Jakarta</title>
         <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="keywords" content="leads, leads.upnvj">
