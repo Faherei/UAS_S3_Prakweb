@@ -89,7 +89,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                 </div>
             </div>
             <div class="chat">
-                <h1>CHAT</h1>
+                <h1>CHATT</h1>
             </div>
         </div>
         </div>
