@@ -83,7 +83,6 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="content">
             <div class="navigation">
                 <div class="logo">
-                    <p>aa</p>
                     <!-- <a href="../index.php">
                         <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png" alt="Logo LeADS UPNVJ" >
                     </a> -->
