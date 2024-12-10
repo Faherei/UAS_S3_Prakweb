@@ -1,32 +1,9 @@
-<?php
+<?php 
 // Memulai session
 session_start();
-include 'koneksi.php';
-
-// Cek session untuk memastikan hanya dosen yang dapat mengakses
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'dosen') {
-    header("Location: index.php");
-    exit();
-}
-
-// Mengambil ID mahasiswa dari URL
-$mahasiswa_id = isset($_GET['mahasiswa_id']) ? $_GET['mahasiswa_id'] : null;
-
-if (!$mahasiswa_id) {
-    header("Location: home_dosen.php");
-    exit();
-}
-
-// Query untuk mendapatkan nama mahasiswa berdasarkan ID
-$query_mahasiswa = "SELECT nama FROM mahasiswaa WHERE id = '$mahasiswa_id'";
-$result_mahasiswa = mysqli_query($conn, $query_mahasiswa);
-$nama_mahasiswa = mysqli_fetch_assoc($result_mahasiswa)['nama'];
-
-if (!$nama_mahasiswa) {
-    header("Location: home_dosen.php");
-    exit();
-}
-?>
+include '../api/koneksi.php';
+include '../api/verif_dosen.php';
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +57,7 @@ if (!$nama_mahasiswa) {
             background-color: #2a2a3e;
             padding: 20px;
             border-radius: 8px;
-            height: 70vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -156,7 +133,7 @@ if (!$nama_mahasiswa) {
         <div class="chat-box">
             <div class="messages">
                 <?php
-                // Query untuk mengambil pesan
+                // Query untuka mengambil pesan
                 $query_pesan = "SELECT * FROM pesan WHERE (pengirim_id = '$_SESSION[id]' AND penerima_id = '$mahasiswa_id') OR (pengirim_id = '$mahasiswa_id' AND penerima_id = '$_SESSION[id]') ORDER BY waktu ASC";
                 $result_pesan = mysqli_query($conn, $query_pesan);
 
