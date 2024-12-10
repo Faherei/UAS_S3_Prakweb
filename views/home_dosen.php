@@ -106,10 +106,10 @@ include '../api/verif_dosen.php';
     <!-- Header -->
     <div class="header">
         <div class="d-flex align-items-center">
-            <img src="logo.png" alt="LeADS UPNVJ">
+            <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
             <h1 class="ms-3">Bimbingan Skripsi</h1>
         </div>
-        <a href="logout.php" class="btn btn-danger">Logout</a>
+        <a href="../logout.php" class="btn btn-danger">Logout</a>
     </div>
     
     <div class="h">
