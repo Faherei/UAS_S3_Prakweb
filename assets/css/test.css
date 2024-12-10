@@ -1,0 +1,176 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 10;
+    /* flex-wrap: wrap; */
+    background-color: #f5f5f5;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e1e6ef;
+    position: relative;
+    width: 20%;
+    border-right: 1px solid #ddd;
+    /* max-width: 300px;
+    height: 300px; */
+}
+.profile {
+    background: #f5f5f5;
+    flex: 5;
+    width: 100%;
+    display: flex; /* Menambahkan display flex */
+    flex-direction: column; /* Mengatur arah flex menjadi kolom */
+    align-items: center; /* Mengatur elemen di dalamnya agar berada di tengah secara horizontal */
+}
+.profilepic img {
+    width: 60%; /* Ukuran logo */
+    border-radius: 50%; /* Membuat gambar berbentuk lingkaran */
+    margin-top: 60px;
+}
+.profilepic h2 {
+    text-align: center;
+}
+
+.profilepic{
+    width: 100%;
+    height: 50%;
+}
+.kalender{
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* CSS KALENDER */
+.wrapper{
+    /* width: 90%; */
+    max-width: 400px;
+    background: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+header .icons{
+    display: flex;
+}
+header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+header .icons span:last-child{
+    margin-right: -10px;
+}
+header .icons span:hover{
+    background-color: #f2f2f2;
+    
+}
+header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+.calendar{
+    padding-left: 0;
+    padding-right: 20px;
+    font-family:arial;
+    margin: 0;
+}
+.calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+.calendar .days{
+    margin-bottom: 20px;
+}
+.calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+}
+.calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+.days li.inactive{
+    color: #aaa;
+}
+.days li.active{
+    color: #ffffff;
+}
+.calendar .days li::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.days li.active::before{
+    background-color: rgb(151, 86, 0);
+}
+.days li:not(.active):hover::before{
+    background: #f2f2f2;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    position: relative;
+    width: 80%;
+    /* max-width: 300px;
+    height: 300px; */
+}
+.navigation{
+    background: linear-gradient(to left, #fc1254, #af2a97, #3652fc);
+    flex: 1;
+    width: 100%;
+    /* height: 20%; */
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    background-color: aliceblue;
+}
+.chat{
+    background-color: rgb(0, 255, 149);
+    flex: 9;
+    width: 100%;
+}

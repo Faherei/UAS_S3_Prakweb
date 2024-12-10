@@ -1,0 +1,74 @@
+CREATE TABLE events (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  start_date DATETIME NOT NULL,
+  end_date DATETIME NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Admin (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(255) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
+);
+
+CREATE TABLE Profile_logs (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nim VARCHAR(20),
+    nid VARCHAR(20),
+    action VARCHAR(255) NOT NULL,
+    path VARCHAR(255) UNIQUE NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE Dosen (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(255) NOT NULL,
+    nid VARCHAR(20) UNIQUE NOT NULL,
+    fakultas VARCHAR(255) NOT NULL,
+    bio TEXT,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    gmeet VARCHAR(255),
+    profile VARCHAR(255)
+);
+
+CREATE TABLE Mahasiswa (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(255) NOT NULL,
+    nim VARCHAR(20) UNIQUE NOT NULL,
+    fakultas VARCHAR(255) NOT NULL,
+    prodi VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    dosenid VARCHAR(20),
+    profile VARCHAR(255)
+);
+
+ALTER TABLE Mahasiswa
+ADD CONSTRAINT fk_mahasiswa_dosenid
+FOREIGN KEY (dosenid) REFERENCES Dosen(nid);
+
+ALTER TABLE Mahasiswa
+ADD CONSTRAINT fk_mahasiswa_profile
+FOREIGN KEY (profile) REFERENCES Profile_logs(path);
+
+ALTER TABLE Dosen
+ADD CONSTRAINT fk_dosen_profile
+FOREIGN KEY (profile) REFERENCES Profile_logs(path);
+
+ALTER TABLE Profile_logs
+ADD CONSTRAINT fk_profile_logs_nim
+FOREIGN KEY (nim) REFERENCES Mahasiswa(nim);
+
+ALTER TABLE Profile_logs
+ADD CONSTRAINT fk_profile_logs_nid
+FOREIGN KEY (nid) REFERENCES Dosen(nid);
+
+
