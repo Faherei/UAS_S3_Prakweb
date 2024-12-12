@@ -25,10 +25,12 @@ include '../api/verif_dosen.php';
     </div>
 
     <div class="navbar">
-        <span>LeADS UPNVJ</span>
+       
+        <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+
         <div>
-            <button class="btn btn-primary me-2">Call</button>
-            <button class="btn btn-secondary">Menu</button>
+            <button class="btn btn-primary me-2">Start Meeting</button>
+            <button class="btn btn-secondary">Primary</button>
         </div>
     </div>
 

@@ -29,9 +29,15 @@ include '../api/verif_dosen.php';
             align-items: center;
             justify-content: space-between;
         }
+
         .header img {
-            height: 50px;
-        }
+    height: 50px; /* Atur tinggi gambar sesuai kebutuhan */
+    width: auto;  /* Pastikan proporsi gambar tetap terjaga */
+    margin-right: 15px; /* Tambahkan jarak dengan teks jika diperlukan */
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+}
+
+       
         .content {
             display: flex;
             flex-direction: row;

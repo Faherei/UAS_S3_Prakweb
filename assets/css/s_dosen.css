@@ -16,6 +16,12 @@ body {
   font-weight: bold;
 }
 
+.navbar img {
+  height: 40px; /* Atur tinggi lebih kecil */
+  max-width: 150px; /* Atur lebar maksimum */
+  object-fit: contain; /* Pastikan gambar tetap proporsional */
+}
+
 .sidebar {
   width: 250px;
   height: 100vh;
