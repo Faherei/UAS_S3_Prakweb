@@ -114,6 +114,7 @@ header .current-date{
 .calendar{
     padding-left: 0;
     padding-right: 20px;
+    min-height: 350px;
     font-family:arial;
     margin: 0;
 }

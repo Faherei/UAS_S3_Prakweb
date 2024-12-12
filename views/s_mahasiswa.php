@@ -61,7 +61,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div class="kalender">
         <div class="wrapper">
             <header>
-                <p class="current-date">December2024</p>
+                <p class="current-date">December2024</p><br>
                 <div class="icons">
                     <span id="prev" class="material-icons">chevron_left</span>
                     <span id="next" class="material-icons">chevron_right</span>
