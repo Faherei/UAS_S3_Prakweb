@@ -37,6 +37,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png"> <!-- Icon Leads -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootsrap -->
     <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Icon pada kalender -->
+    <script src="../assets/js/script_kalendar.js" defer></script>
 </head>
 <body>
   <nav>
@@ -52,7 +54,33 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div class="profile">
       <img src="../assets/uploads/default-profile.jpeg" alt="Profile Dosen">
     </div>
-    sidebar
+    <div class="biodata">
+      Informationns
+    </div>
+    <!-- KALENDER -->
+    <div class="kalender">
+        <div class="wrapper">
+            <header>
+                <p class="current-date">December2024</p>
+                <div class="icons">
+                    <span id="prev" class="material-icons">chevron_left</span>
+                    <span id="next" class="material-icons">chevron_right</span>
+                    </div>
+            </header>
+          <div class="calendar">
+            <ul class="weeks">
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+            <ul class="days"></ul>
+        </div>
+      </div>
+    </div>
   </aside>
   <main>
     <h1>Hello world</h1>
