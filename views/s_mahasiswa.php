@@ -83,7 +83,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </aside>
   <main>
-    <h1>Hello world</h1>
     <!-- Modal untuk Tambah Event -->
     <div id="event-modal" class="modal">
       <div class="modal-content">
