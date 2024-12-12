@@ -47,10 +47,10 @@ ALTER TABLE Mahasiswa
 ADD CONSTRAINT fk_mahasiswa_dosenid
 FOREIGN KEY (dosenid) REFERENCES Dosen(nid);
 
+-- DATA Dosen
+INSERT INTO `dosen` (`id`, `nama`, `nid`, `fakultas`, `bio`, `email`, `username`, `password`, `gmeet`) VALUES
+(1, 'roeja', '25569', 'akfafkaef', NULL, '', 'bbb', 'bbb', NULL);
 -- DATA MAHASISWA
 INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `fakultas`, `prodi`, `email`, `username`, `password`, `dosenid`) VALUES
 (1, 'joesa', '2310512139', 'awgesgsegsg', 'wfagesgseg', 'joesa@gmail.com', 'aaa', 'aaa', '25569');
 
--- DATA Dosen
-INSERT INTO `dosen` (`id`, `nama`, `nid`, `fakultas`, `bio`, `email`, `username`, `password`, `gmeet`) VALUES
-(1, 'roeja', '25569', 'akfafkaef', NULL, '', 'bbb', 'bbb', NULL);
