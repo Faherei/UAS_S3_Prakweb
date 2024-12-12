@@ -614,7 +614,7 @@ require([
                       <a class="dropdown-item" href="#">
                         <i class="icon fa fa-fw flaticon-puzzle-1"></i>Dashboard</a>
                         <!-- REI ADD - Home User Settings -->
-                        <a class="dropdown-item" href="REI REI REI"> <i class="icon fa fa-fw flaticon-student"></i>Profile</a>
+                        <a class="dropdown-item" href="profile_mahasiswa.php"> <i class="icon fa fa-fw flaticon-student"></i>Profile</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-rating"></i>Grades</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-speech-bubble"></i>Messages</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-settings"></i>Preferences</a>
