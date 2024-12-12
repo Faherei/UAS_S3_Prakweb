@@ -1,3 +1,7 @@
+CREATE DATABASE b_skripsi;
+
+USE DATABASE b_skripsi;
+
 CREATE TABLE events (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
