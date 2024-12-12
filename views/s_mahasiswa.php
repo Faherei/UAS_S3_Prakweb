@@ -55,7 +55,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       <img src="../assets/uploads/default-profile.jpeg" alt="Profile Dosen">
     </div>
     <div class="biodata">
-      Informationnssss
+      Informations
     </div>
     <!-- KALENDER -->
     <div class="kalender">
