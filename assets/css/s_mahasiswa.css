@@ -38,8 +38,7 @@ nav{
     top: 0;
     align-self: start;
     position: sticky;
-    min-height: 48px;
-    max-height: 48px;
+    min-height: 60x;
     color: white;
     background-color: #252549;
     padding-top: 5px;
