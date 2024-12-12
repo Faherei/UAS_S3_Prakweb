@@ -7,7 +7,7 @@ body {
 
 /* Styling navbar */
 table.navbar {
-    width: 100%;
+    width: 90%;
     background: linear-gradient(to right, #485be3, #e3285f);
     color: white;
     border-spacing: 0;
