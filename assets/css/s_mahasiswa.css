@@ -192,8 +192,22 @@ header .current-date{
 }
 .btn_submit{
     float: right;
+    min-width: 68px;
     margin-top: 8px;
-    margin-left: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: #1D52E0;
+    color: #EEEEF0;
+}
+.btn_cancel{
+    float: left;
+    margin-top: 8px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    color: #1D52E0;
 }
 /* CSS KALENDER AKHIR*/
 main{

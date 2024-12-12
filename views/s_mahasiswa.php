@@ -106,8 +106,8 @@ if ($result && mysqli_num_rows($result) > 0) {
             <span class="input-group-text">Deskripsi:</span>
             <textarea class="form-control" aria-label="With textarea"></textarea>
           </div>
-          <button type="submit" class="btn btn_submit btn-primary">Submit</button>
-          <button type="button" class="close btn btn_submit btn-secondary">cancel</button>
+          <button type="submit" class="btn_submit">Submit</button>
+          <button type="button" class="close btn_cancel">cancel</button>
         </form>
       </div>
     </div>
