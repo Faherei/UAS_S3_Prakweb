@@ -1,6 +1,6 @@
 CREATE DATABASE b_skripsi;
 
-USE DATABASE b_skripsi;
+USE b_skripsi;
 
 CREATE TABLE events (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,16 +19,6 @@ CREATE TABLE Admin (
     email VARCHAR(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE Profile_logs (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nim VARCHAR(20),
-    nid VARCHAR(20),
-    action VARCHAR(255) NOT NULL,
-    path VARCHAR(255) UNIQUE NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
-
 CREATE TABLE Dosen (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nama VARCHAR(255) NOT NULL,
@@ -38,8 +28,7 @@ CREATE TABLE Dosen (
     email VARCHAR(255) UNIQUE NOT NULL,
     username VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    gmeet VARCHAR(255),
-    profile VARCHAR(255)
+    gmeet VARCHAR(255)
 );
 
 CREATE TABLE Mahasiswa (
@@ -51,34 +40,17 @@ CREATE TABLE Mahasiswa (
     email VARCHAR(255) UNIQUE NOT NULL,
     username VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    dosenid VARCHAR(20),
-    profile VARCHAR(255)
+    dosenid VARCHAR(20) NOT NULL
 );
 
 ALTER TABLE Mahasiswa
 ADD CONSTRAINT fk_mahasiswa_dosenid
 FOREIGN KEY (dosenid) REFERENCES Dosen(nid);
 
-ALTER TABLE Mahasiswa
-ADD CONSTRAINT fk_mahasiswa_profile
-FOREIGN KEY (profile) REFERENCES Profile_logs(path);
-
-ALTER TABLE Dosen
-ADD CONSTRAINT fk_dosen_profile
-FOREIGN KEY (profile) REFERENCES Profile_logs(path);
-
-ALTER TABLE Profile_logs
-ADD CONSTRAINT fk_profile_logs_nim
-FOREIGN KEY (nim) REFERENCES Mahasiswa(nim);
-
-ALTER TABLE Profile_logs
-ADD CONSTRAINT fk_profile_logs_nid
-FOREIGN KEY (nid) REFERENCES Dosen(nid);
-
 -- DATA MAHASISWA
-INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `fakultas`, `prodi`, `email`, `username`, `password`, `dosenid`, `profile`) VALUES
-(1, 'joesa', '2310512139', 'awgesgsegsg', 'wfagesgseg', 'joesa@gmail.com', 'aaa', 'aaa', '25569', NULL);
+INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `fakultas`, `prodi`, `email`, `username`, `password`, `dosenid`) VALUES
+(1, 'joesa', '2310512139', 'awgesgsegsg', 'wfagesgseg', 'joesa@gmail.com', 'aaa', 'aaa', '25569');
 
 -- DATA Dosen
-INSERT INTO `dosen` (`id`, `nama`, `nid`, `fakultas`, `bio`, `email`, `username`, `password`, `gmeet`, `profile`) VALUES
-(1, 'roeja', '25569', 'akfafkaef', NULL, '', 'bbb', 'bbb', NULL, NULL);
+INSERT INTO `dosen` (`id`, `nama`, `nid`, `fakultas`, `bio`, `email`, `username`, `password`, `gmeet`) VALUES
+(1, 'roeja', '25569', 'akfafkaef', NULL, '', 'bbb', 'bbb', NULL);
