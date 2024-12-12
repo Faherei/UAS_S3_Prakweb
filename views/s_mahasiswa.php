@@ -45,7 +45,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <a href="../index.php">
       <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="logo upn">
     </a>
-    <button type="button" class="settings btn btn-secondary btn-sm">Primary</button>
+    <button type="button" class="settings btn btn-secondary btn-sm">&#9776</button>
     <a href="">
       <button type="button" class="meeting btn btn-primary btn-sm ">Start Meeting</button>
     </a>

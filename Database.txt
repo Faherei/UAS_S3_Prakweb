@@ -71,4 +71,10 @@ ALTER TABLE Profile_logs
 ADD CONSTRAINT fk_profile_logs_nid
 FOREIGN KEY (nid) REFERENCES Dosen(nid);
 
+-- DATA MAHASISWA
+INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `fakultas`, `prodi`, `email`, `username`, `password`, `dosenid`, `profile`) VALUES
+(1, 'joesa', '2310512139', 'awgesgsegsg', 'wfagesgseg', 'joesa@gmail.com', 'aaa', 'aaa', '25569', NULL);
 
+-- DATA Dosen
+INSERT INTO `dosen` (`id`, `nama`, `nid`, `fakultas`, `bio`, `email`, `username`, `password`, `gmeet`, `profile`) VALUES
+(1, 'roeja', '25569', 'akfafkaef', NULL, '', 'bbb', 'bbb', NULL, NULL);
