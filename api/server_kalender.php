@@ -2,8 +2,8 @@
 header("Content-Type: application/json");
 $method = $_SERVER['REQUEST_METHOD'];
 $host = "localhost";
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
+$username = "root";
+$password = "";
 $dbname = "b_skripsi";
 
 // Koneksi database

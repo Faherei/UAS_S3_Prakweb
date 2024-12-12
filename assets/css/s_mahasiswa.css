@@ -71,10 +71,7 @@ aside{
     height: 240px;
     border-radius: 50%;
 }
-/* CSS KALENDER */
-.kalender{
-
-}
+/* CSS KALENDER AWAL*/
 .wrapper{
     margin-left: 10px;
     max-width: 280px;
@@ -168,6 +165,40 @@ header .current-date{
 .days li:not(.active):hover::before{
     background: #222231;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* CSS KALENDER AKHIR*/
 main{
     color: #f5f5f5;
     top: 40px;
