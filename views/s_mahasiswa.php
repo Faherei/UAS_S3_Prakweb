@@ -3,6 +3,11 @@ session_start();
 include '../api/koneksi.php';
 include '../api/verif_mahasiswa.php';
 
+if (isset($_SESSION['message'])) {
+  echo "<div class='alert alert-info'>" . $_SESSION['message'] . "</div>";
+  unset($_SESSION['message']);  // Hapus pesan setelah ditampilkan
+}
+
 // Ambil NID dosen dari session
 $dospem = $_SESSION['id_dosen']; // NID dosen pembimbing yang diambil dari session
 
@@ -86,23 +91,23 @@ if ($result && mysqli_num_rows($result) > 0) {
     <!-- Modal untuk Tambah Event -->
     <div id="event-modal" class="modal">
       <div class="modal-content">
-        <form id="event-form">
+        <form id="event-form" action="../API/server_kalender.php" method="POST">
           <div class="mb-3">
-            <input type="text" class="form-control" id="event-title" placeholder="Judul" required >
+            <input type="text" class="form-control" id="title" name="title" placeholder="Judul" required >
           </div>
           <div class="row">
             <div class="col-md-6">
-              <label for="Tanggal Mulai" class="form-label">Tanggal Mulai:</label>
-              <input type="datetime-local" class="form-control" id="start-date" required>
+              <label for="start-date" class="form-label">Tanggal Mulai:</label>
+              <input type="datetime-local" class="form-control" id="start-date" name="start_date" required>
             </div>
             <div class="col-md-6">
-              <label for="Tanggal Selesai" class="form-label">Tanggal Selesai:</label>
-              <input type="datetime-local" class="form-control" id="end-date" required>
+              <label for="end-date" class="form-label">Tanggal Selesai:</label>
+              <input type="datetime-local" class="form-control" id="end-date" name="end_date" required>
             </div>
           </div><br>
           <div class="input-group">
             <span class="input-group-text">Deskripsi:</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
           </div>
           <button type="submit" class="btn_submit">Submit</button>
           <button type="button" class="close btn_cancel">cancel</button>
