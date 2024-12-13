@@ -2,7 +2,7 @@
 // Memulai session
 session_start();
 include '../api/koneksi.php';
-include '../api/verif_admin.php.php';
+include '../api/verif_admin.php';
 ?> 
 
 <!DOCTYPE html>
