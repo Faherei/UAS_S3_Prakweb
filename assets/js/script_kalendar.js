@@ -15,17 +15,9 @@ let events = [];
 
 // Fetch events from server
 const fetchEvents = async () => {
-    try {
-        const response = await fetch('../API/server_kalender.php');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        events = await response.json();
-    } catch (error) {
-        console.error('There was a problem with fetching events:', error);
-    }
+    const response = await fetch('../API/server_kalender.php');
+    events = await response.json();
 };
-
 
 const renderCalendar = () => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
@@ -90,29 +82,6 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
-
-const addEvent = async (eventData) => {
-    try {
-        const response = await fetch('../API/server_kalender.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(eventData)
-        });
-        const result = await response.json();
-        if (result.success) {
-            alert('Event added successfully!');
-            fetchEvents();  // Refetch events and re-render calendar
-            renderCalendar();
-        } else {
-            alert('Failed to add event');
-        }
-    } catch (error) {
-        console.error('Error adding event:', error);
-    }
-};
-
 
 // Fetch and render events
 fetchEvents().then(() => renderCalendar());

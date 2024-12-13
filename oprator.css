@@ -1,170 +1,165 @@
 /* Styling body */
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #f9f9f9;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
 }
 
 /* Styling navbar */
 table.navbar {
-    width: 100%;
-    background: linear-gradient(to right, #485be3, #e3285f);
-    color: white;
-    border-spacing: 0;
+  width: 90%;
+  background: linear-gradient(to right, #485be3, #e3285f);
+  color: white;
+  border-spacing: 0;
 }
 
 /* Styling untuk kolom dalam navbar */
 table.navbar td {
-    text-align: center;
-    vertical-align: middle; /* Teks rata tengah secara vertikal.*/
-    font-size: 20px;
-    padding: 10px;
-    position: relative; /* Untuk positioning dropdown */
+  text-align: center;
+  vertical-align: middle; /* Teks rata tengah secara vertikal.*/
+  font-size: 20px;
+  padding: 10px;
+  position: relative; /* Untuk positioning dropdown */
 }
 
 /* Menata logo navbar */
 table.navbar td:first-child {
-    text-align: left;
-    padding-left: 10px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 table.navbar img {
-    width: 25%;
-    margin-right: 10px; /*memberi jarak ke kanan */
+  width: 25%;
+  margin-right: 10px; /*memberi jarak ke kanan */
 }
 
 /* Styling dropdown */
 table.navbar .dropdown-menu {
-    position: absolute; /* agar muncul di bawah tulisan induknya */
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none; /* Tersembunyi secara default */
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* menambahkan agar ada bayangan di pingir pingir dropdown */
-    min-width: 200px;
-    z-index: 10;
+  position: absolute; /* agar muncul di bawah tulisan induknya */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none; /* Tersembunyi secara default */
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* menambahkan agar ada bayangan di pingir pingir dropdown */
+  min-width: 200px;
+  z-index: 10;
 }
 
 table.navbar .dropdown:hover .dropdown-menu {
-    display: block; /* Tampilkan dropdown saat hover */
+  display: block; /* Tampilkan dropdown saat hover */
 }
 
 table.navbar .dropdown-menu li {
-    text-align: left;
+  text-align: left;
 }
 
 table.navbar .dropdown-menu li a {
-    display: block;
-    padding: 8px 12px;
-    color: black;
-    text-decoration: none;
-    font-size: 16px;
+  display: block;
+  padding: 8px 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 table.navbar .dropdown-menu li a:hover {
-    background-color: #e3e3e3;
+  background-color: #e3e3e3;
 }
-
-
 
 /* Tombol Add */
 .add-button {
-    display: flex; /* Menggunakan flexbox untuk tata letak */
-    justify-content: flex-end; /* Menempatkan tombol di ujung kanan */
-    margin-bottom: 20px; /* Memberi jarak ke bawah */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  justify-content: flex-end; /* Menempatkan tombol di ujung kanan */
+  margin-bottom: 20px; /* Memberi jarak ke bawah */
 }
 
 /* Styling tombol Add */
 .add-button button {
-    padding: 10px 20px; /* Spasi dalam tombol */
-    font-size: 20px; /* Ukuran teks tombol */
-    background-color: #0424f3; /* Warna dasar tombol */
-    color: white;
-    border: none; /* Menghapus border tombol */
-    border-radius: 5px; /* Membuat sudut tombol membulat */
-    cursor: pointer; /* Menampilkan pointer saat tombol dihover */
-    transition: background-color 0.3s ease; /* Animasi perubahan warna saat hover */
+  padding: 10px 20px; /* Spasi dalam tombol */
+  font-size: 20px; /* Ukuran teks tombol */
+  background-color: #0424f3; /* Warna dasar tombol */
+  color: white;
+  border: none; /* Menghapus border tombol */
+  border-radius: 5px; /* Membuat sudut tombol membulat */
+  cursor: pointer; /* Menampilkan pointer saat tombol dihover */
+  transition: background-color 0.3s ease; /* Animasi perubahan warna saat hover */
 }
 
 /* Hover effect tombol */
 .add-button button:hover {
-    background-color: #bcbcbc; /* Warna tombol saat dihover */
+  background-color: #bcbcbc; /* Warna tombol saat dihover */
 }
-
 
 /* Daftar */
 table.nama-list {
-    width: 82%; /* Tetap lebar tabel 40% */
-    border-spacing: 0; /* Menghilangkan jarak antar elemen tabel */
-    text-align: left; /* Rata kiri seluruh tabel */
-    margin: 0; /* Menghilangkan semua margin */
-    padding: 0; /* Menghilangkan semua padding */
-    position: absolute; /* Posisi absolut untuk memastikan menempel di kiri */
-    left: 30px; /* Menempel di tepi kiri */
-    border-radius: 5px;
-  }
-  
-      
+  width: 82%; /* Tetap lebar tabel 40% */
+  border-spacing: 0; /* Menghilangkan jarak antar elemen tabel */
+  text-align: left; /* Rata kiri seluruh tabel */
+  margin: 0; /* Menghilangkan semua margin */
+  padding: 0; /* Menghilangkan semua padding */
+  position: absolute; /* Posisi absolut untuk memastikan menempel di kiri */
+  left: 30px; /* Menempel di tepi kiri */
+  border-radius: 5px;
+}
 
 /* Styling untuk baris dalam daftar */
 table.nama-list tr {
-    background-color: #d4d4d4; /* Warna latar belakang untuk setiap baris */
-    border-radius: 10x; /* Membuat sudut membulat untuk elemen tabel */
-    margin-bottom: 10px; /* Memberi jarak antar baris */
-    display: flex; /* Menggunakan flexbox untuk tata letak */
-    align-items: left; /* Vertikal rata tengah */
-    padding: 10px; /* Spasi di dalam baris */
-    margin: 10px 0; /* Jarak atas dan bawah untuk setiap baris */
-    justify-content: flex-start; /* Menempatkan konten di sebelah kiri */
-  }
+  background-color: #d4d4d4; /* Warna latar belakang untuk setiap baris */
+  border-radius: 10x; /* Membuat sudut membulat untuk elemen tabel */
+  margin-bottom: 10px; /* Memberi jarak antar baris */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  align-items: left; /* Vertikal rata tengah */
+  padding: 10px; /* Spasi di dalam baris */
+  margin: 10px 0; /* Jarak atas dan bawah untuk setiap baris */
+  justify-content: flex-start; /* Menempatkan konten di sebelah kiri */
+}
 
 /* Styling untuk setiap sel dalam daftar */
 table.nama-list td {
-    padding: 10px; /* Spasi dalam setiap sel tabel */
-    vertical-align: left; /* Vertikal rata tengah dalam sel */
-    text-align: left; /* Rata kiri konten dalam sel */
+  padding: 10px; /* Spasi dalam setiap sel tabel */
+  vertical-align: left; /* Vertikal rata tengah dalam sel */
+  text-align: left; /* Rata kiri konten dalam sel */
 }
 
 /* Menata kolom pertama (lingkaran) */
 table.nama-list td:first-child {
-    width: 50px; /* Lebar tetap untuk kolom pertama (lingkaran) */
-    text-align: center; /* Posisi lingkaran di tengah */
+  width: 50px; /* Lebar tetap untuk kolom pertama (lingkaran) */
+  text-align: center; /* Posisi lingkaran di tengah */
 }
 
 /* Styling lingkaran */
 .circle {
-    width: 40px; /* Lebar lingkaran */
-    height: 40px; /* Tinggi lingkaran */
-    background-color: white; /* Warna lingkaran */
-    border-radius: 50%; /* Membuat bentuk lingkaran */
-    display: inline-block; /* Menampilkan sebagai elemen blok kecil */
+  width: 40px; /* Lebar lingkaran */
+  height: 40px; /* Tinggi lingkaran */
+  background-color: white; /* Warna lingkaran */
+  border-radius: 50%; /* Membuat bentuk lingkaran */
+  display: inline-block; /* Menampilkan sebagai elemen blok kecil */
 }
 
 /* Styling nama */
 .nama-tulisan {
-    font-size: 16px; /* Ukuran teks nama dosen */
-    color: black; /* Warna teks nama dosen */
-    text-align: left; /* Memastikan nama dosen rata kiri */
-    margin-left: 10px; /* Memberi jarak antara lingkaran dan nama dosen */
+  font-size: 16px; /* Ukuran teks nama dosen */
+  color: black; /* Warna teks nama dosen */
+  text-align: left; /* Memastikan nama dosen rata kiri */
+  margin-left: 10px; /* Memberi jarak antara lingkaran dan nama dosen */
 }
 
 .delete-cell {
-    margin-left: auto; /* Pindahkan ke ujung kanan */
+  margin-left: auto; /* Pindahkan ke ujung kanan */
 }
 
 /* Tombol Delete */
 .btn-danger {
-    padding: 5px 10px;
-    color: white;
-    background-color: #e3285f;
-    border: none;
-    border-radius: 5px; /* agar ujungnya tumpul atau membulat */
-    cursor: pointer;
-    font-size: 14px;
+  padding: 5px 10px;
+  color: white;
+  background-color: #e3285f;
+  border: none;
+  border-radius: 5px; /* agar ujungnya tumpul atau membulat */
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .btn-danger:hover {
-    background-color: #c41d51;
+  background-color: #c41d51;
 }
