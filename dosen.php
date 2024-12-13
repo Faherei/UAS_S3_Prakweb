@@ -30,7 +30,7 @@ if (!$result) {
             <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
             </td>
             <td class="dropdown">
-                <span class="dropdown-toggle" data-bs-toggle="dropdown">FAKULTAS</span>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown">fakultas</span>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Ekonomi dan Bisnis</a></li>
                     <li><a class="dropdown-item" href="#">Kedokteran</a></li>
