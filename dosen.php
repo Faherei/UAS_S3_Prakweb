@@ -1,10 +1,10 @@
 <?php
 // Connection ke database
-include 'connection.php'; // Pastikan file ini memiliki koneksi $db
+include './api/koneksi.php'; // Pastikan file ini memiliki koneksi $db
 
 // Ambil data dari tabel dosen
 $sql = "SELECT * FROM dosen";
-$result = mysqli_query($link, $sql);
+$result = mysqli_query($conn, $sql);
 
 //Mengecek apakah query gagal
 if (!$result) {
@@ -23,11 +23,11 @@ if (!$result) {
     <link rel="stylesheet" href="oprator.css">
 </head>
 <body>
-   <!-- Navbar -->
-   <table class="navbar">
+    <!-- Navbar -->
+    <table class="navbar">
         <tr>
             <td>
-                <img src="logo.png" alt="Logo">
+            <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
             </td>
             <td class="dropdown">
                 <span class="dropdown-toggle" data-bs-toggle="dropdown">FAKULTAS</span>
@@ -65,9 +65,9 @@ if (!$result) {
             </td>
         </tr>
     </table>
-    
 
-   <!-- Kontainer Utama -->
+
+    <!-- Kontainer Utama -->
    <div class="container mt-4"> <!-- Area konten utama, dengan margin atas (mt-4) untuk jarak dari atas -->
         <!-- Tombol Add -->
         <div class="add-button">
@@ -84,13 +84,13 @@ if (!$result) {
                         
                         <td class="delete-cell">
         <!-- Tombol Delete -->
-        <a href="delete_dosen.php?id=<?php echo $row['id']; ?>"  
-         onclick="return confirm('Yakin ingin menghapus data ini?');" 
+                            <a href="delete_dosen.php?id=<?php echo $row['id']; ?>"  
+                               onclick="return confirm('Yakin ingin menghapus data ini?');" 
          class="btn btn-danger btn-sm">Delete</a>  <!-- fungsi untuk menghapus data -->
-        </td>
+                        </td>
         <td><a href="mahasiswa.php?nid=<?php echo urlencode($row['nid']); ?>" 
                          class="btn btn-primary btn-sm">Lihat Mahasiswa</a> <!-- Mengarahkan ke halaman mahasiswa berdasarkan nid dosen. -->
-                </td>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             </table>
