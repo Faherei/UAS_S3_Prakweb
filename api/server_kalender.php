@@ -24,7 +24,7 @@ if ($method === "GET") {
 
 } elseif ($method === "POST") {
     // Menambah event baru
-    $data = json_decode(file_get_contents("./views/s_mahasiswa.php"), true);
+    $data = json_decode(file_get_contents("php://input"), true);
     $title = $data['title'];
     $start_date = $data['start_date'];
     $end_date = $data['end_date'];

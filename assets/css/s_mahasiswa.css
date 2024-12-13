@@ -33,9 +33,6 @@ a{
 .settings:hover{
     background-color: #797B86;
 }
-.meeting, .settings {
-    transition: background-color 0.3s ease; /*menambahkan animasi transisi*/
-}
 nav{
     grid-area: navbar;
     top: 0;
@@ -69,9 +66,8 @@ aside{
     box-sizing: border-box;
 }
 .profile img{
+    width: auto;
     height: 240px;
-    width: 240px;
-    object-fit: cover; /* Menjaga aspek rasio gambar */
     border-radius: 50%;
 }
 /* CSS KALENDER AWAL*/
@@ -84,7 +80,6 @@ aside{
 }
 .wrapper header{
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
@@ -112,7 +107,7 @@ header .icons span:hover{
     
 }
 header .current-date{
-    font-size: larger;
+    font-size: 1.45rem;
     font-weight: 500;
 }
 .calendar{
