@@ -30,7 +30,9 @@ if (!$result) {
     <table class="navbar">
         <tr>
             <td>
-            <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+                <a href="../logout.php">
+                    <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+                </a>
             </td>
             <td class="dropdown">
                 <span class="dropdown-toggle" data-bs-toggle="dropdown"></span>
