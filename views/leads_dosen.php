@@ -426,7 +426,7 @@ require([
             <li class=""><a class="ccn-menu-item" href="#">All Course</a></li></ul></li>
             <li class=""><a class="ccn-menu-item" href="#">Announcements</a></li>
             <!-- REI ADD -->
-            <li class=""><a class="ccn-menu-item" href="s_mahasiswa.php">Bimbingan Skripsi</a></li>
+            <li class=""><a class="ccn-menu-item" href="home_dosen.php">Bimbingan Skripsi</a></li>
             <li><a class="ccn-menu-item" href="#">Helpdesk<span class="arrow "></span></a>
               <ul class="sub-menu"><li class=""><a class="ccn-menu-item" href="#">Guide for Lecture</a></li>
             <li class=""><a class="ccn-menu-item" href="#">Guide for Student</a></li>
