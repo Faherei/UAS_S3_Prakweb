@@ -30,22 +30,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     die("Data dosen tidak ditemukan.");
 }
 
-
-if ($chatResult && mysqli_num_rows($chatResult) > 0) {
-    while ($chatRow = mysqli_fetch_assoc($chatResult)) {
-        $sender = $chatRow['sender'];
-        $message = $chatRow['message'];
-        $timestamp = $chatRow['timestamp'];
-
-        // Menampilkan pesan chat
-        echo "<div class='message'>
-                <strong>$sender:</strong> $message <br>
-                <small>$timestamp</small>
-              </div>";
-    }
-}
-
-
 ?>
 
 <!DOCTYPE html>
