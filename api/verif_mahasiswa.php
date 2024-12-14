@@ -10,7 +10,7 @@ if ($_SESSION['role'] !== 'mahasiswa') {
     // Jika role bukan mahasiswa, redirect ke halaman sesuai role mereka
     switch ($_SESSION['role']) {
         case 'dosen':
-            header("Location: ./home_dosen.php"); // Ganti dengan halaman dosen
+            header("Location: ./leads_dosen.php"); // Ganti dengan halaman dosen
             break;
             case 'admin':
                 header("Location: ./home_admin.php"); // Ganti dengan halaman admin

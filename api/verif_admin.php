@@ -10,13 +10,13 @@ if ($_SESSION['role'] !== 'admin') {
     // Jika role bukan admin, redirect ke halaman sesuai role mereka
     switch ($_SESSION['role']) {
         case 'dosen':
-            header("Location: home_dosen.php"); // Ganti dengan halaman dosen
+            header("Location: ./leads_dosen.php"); // Ganti dengan halaman dosen
             break;
             case 'admin':
-                header("Location: home_mahasiswa.php"); // Ganti dengan halaman mahasiswa
+                header("Location: ./home_mahasiswa.php"); // Ganti dengan halaman mahasiswa
                 break;
                 default:
-                header("Location: index.php"); // Jika role tidak dikenali, redirect ke index
+                header("Location: ./index.php"); // Jika role tidak dikenali, redirect ke index
                 break;
             }
             exit();
