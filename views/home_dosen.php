@@ -13,100 +13,8 @@ include '../api/verif_dosen.php';
     <title>Bimbingan Skripsi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color:#1e1e2f;
-        }
-        .header {
-            background-color: #252549;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .header img {
-    height: 50px; /* Atur tinggi gambar sesuai kebutuhan */
-    width: auto;  /* Pastikan proporsi gambar tetap terjaga */
-    margin-right: 15px; /* Tambahkan jarak dengan teks jika diperlukan */
-    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
-}
-
-       
-        .content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 20px;
-        }
-        .student-list {
-            width: 68%;
-        }
-        .student-item {
-            background-color: #2a2a3e;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            color: #dee2e6;
-            
-        }
-        .student-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        .calendar-container {
-            width: 30%;
-            background-color: white;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-        }
-        #calendar {
-            width: 100%;
-        }
-
-        .card {
-            width: 100%;
-            background-color: #2a2a3e;
-            color: white;
-            border: none;
-            border-radius: 8px;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .card-title {
-            margin: 0;
-        }
-        .card .btn {
-            margin-left: 10px;
-            background-color: #485be3;
-            border: none;
-            color: white;
-        }
-        .card .btn-secondary {
-            background-color: #e3285f;
-        }
-        .card .btn:hover {
-            opacity: 0.8;
-        }
-
-        .h{
-            color:#dee2e6;
-            margin-left: 15px;
-        }
-
-    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/home_dosen.css">
 </head>
 <body>
     <!-- Header -->
@@ -144,13 +52,12 @@ include '../api/verif_dosen.php';
                             <p>ID: {$row['id']}</p>
                         </div>
                         <div class='card'>
-    <div class='card-body'>
-        <div class='d-flex justify-content-end align-items-center gap-2'>
-            <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
-        </div>
-    </div>
-</div>
-
+                            <div class='card-body'>
+                                <div class='d-flex justify-content-end align-items-center gap-2'>
+                                    <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>";
                 }
             } else {
@@ -161,34 +68,84 @@ include '../api/verif_dosen.php';
 
         <!-- Calendar -->
         <div class="calendar-container">
-            <div id="calendar"></div>
+            <div class="wrapper">
+                <header>
+                    <p class="current-date">December 2024</p><br>
+                    <div class="icons">
+                        <span id="prev" class="material-icons">chevron_left</span>
+                        <span id="next" class="material-icons">chevron_right</span>
+                    </div>
+                </header>
+                <div class="calendar">
+                    <ul class="weeks">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="days"></ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const calendarEl = document.getElementById('calendar');
+        const daysTag = document.querySelector(".days"),
+        currentDate = document.querySelector(".current-date"),
+        prevNextIcon = document.querySelectorAll(".icons span");
 
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: async function (fetchInfo, successCallback, failureCallback) {
-                    try {
-                        const response = await fetch('calendar.php');
-                        const events = await response.json();
-                        successCallback(events.map(event => ({
-                            id: event.id,
-                            title: event.title,
-                            start: event.start_date,
-                            end: event.end_date,
-                            description: event.description,
-                        })));
-                    } catch (error) {
-                        failureCallback(error);
-                    }
-                },
+        let date = new Date(),
+        currYear = date.getFullYear(),
+        currMonth = date.getMonth();
+
+        const months = ["January", "February", "March", "April", "May", "June", "July",
+                        "August", "September", "October", "November", "December"];
+
+        const renderCalendar = () => {
+            let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+                lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+                lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+                lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+
+            let liTag = "";
+
+            for (let i = firstDayofMonth; i > 0; i--) {
+                liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+            }
+
+            for (let i = 1; i <= lastDateofMonth; i++) {
+                let dateStr = `${currYear}-${String(currMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+                            && currYear === new Date().getFullYear() ? "active" : "";
+
+                liTag += `<li class="${isToday}" data-date="${dateStr}">${i}</li>`;
+            }
+
+            for (let i = lastDayofMonth; i < 6; i++) {
+                liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+            }
+            currentDate.innerText = `${months[currMonth]} ${currYear}`;
+            daysTag.innerHTML = liTag;
+        };
+
+        renderCalendar();
+
+        prevNextIcon.forEach(icon => {
+            icon.addEventListener("click", () => {
+                currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+                if (currMonth < 0 || currMonth > 11) {
+                    date = new Date(currYear, currMonth, new Date().getDate());
+                    currYear = date.getFullYear();
+                    currMonth = date.getMonth();
+                } else {
+                    date = new Date();
+                }
+                renderCalendar();
             });
-
-            calendar.render();
         });
     </script>
 </body>
