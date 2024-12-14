@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['nama'] = $row_mahasiswa['nama'];
             $_SESSION['nim'] = $row_mahasiswa['nim'];
             $_SESSION['email'] = $row_mahasiswa['email'];
-            $_SESSION['profile'] = $row_mahasiswa['profile'];
             $_SESSION['fakultas'] = $row_mahasiswa['fakultas'];
             $_SESSION['prodi'] = $row_mahasiswa['prodi'];
             $_SESSION['id_dosen'] = $row_mahasiswa['dosenid'];
+            $_SESSION['profile'] = $row_mahasiswa['profile'];
             $_SESSION['role'] = 'mahasiswa'; // Simpan peran
             header("Location: views/home_mahasiswa.php");
             exit();

@@ -27,11 +27,36 @@ main {
     display: flex;
     padding: 20px;
     background-color: #1e1e2f;
-    color: #f5f5f5;
+    color: #252549;
     align-items: center;
     justify-content: center;
 }
-.btn_submit{
+
+.profil{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.profil img{
+    width: auto;
+    height: 300px;
+    border-radius: 50%;
+}
+.kartu{
+    width: 800px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+.kartu h2, h3{
+    text-align: center;
+}
+.btn_change{
     float: right;
     min-width: 68px;
     margin-top: 8px;
@@ -41,7 +66,7 @@ main {
     background-color: #1D52E0;
     color: #EEEEF0;
 }
-.btn_cancel{
+.btn_back{
     float: left;
     margin-top: 8px;
     margin-right: 10px;
@@ -49,24 +74,4 @@ main {
     background-color: transparent;
     font-size: 15px;
     color: #1D52E0;
-}
-
-.card{
-    background-color: #2a2a3e;
-    width: 500px;
-    border-radius: 10px;
-    padding: 50px;
-}
-.profil{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
-.profil img{
-    width: auto;
-    height: 300px;
-    border-radius: 50%;
 }

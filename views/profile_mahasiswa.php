@@ -15,12 +15,14 @@ $mhs = $_SESSION['nama'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bimbingan Skripsi</title>
     <link rel="stylesheet" href="../assets/css/pmahasiswa.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootsrap -->
 </head>
 
 <body>
     <nav>aa</nav>
     <main>
-        <div class="card">
+        <div class="kartu">
+            <h2>DASHBOARD/PROFILE</h2><br>
             <div class="profil">
                 <?php
             $select = mysqli_query($conn, "SELECT * FROM `mahasiswa` WHERE nama = '$mhs'");
@@ -30,17 +32,33 @@ $mhs = $_SESSION['nama'];
             if($fetch['profile'] == ''){
                 echo '<img src="../assets/uploads/default-profile.jpeg">';
             }else{
-                echo '<img src="../assets/uploaded/'.$fetch['profile'].'">';
+                echo '<img src="../assets/uploads/'.$fetch['profile'].'">';
             }
             ?>
         </div>
         <div class="card-body">
-            <h3><?php echo $fetch['nama']; ?></h3>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="../views/update_pmahasiswa.php">
-                <button type="submit" class="btn_submit">Change</button>
-            </a>
-            <button type="button" class="close btn_cancel">Back</button>
+            <h3><?php echo $fetch['nim']; ?><span> <?php echo $fetch['nama']; ?></span></h3>
+            <form class="row g-3">
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Email</label>
+                  <input type="email" readonly class="form-control" id="inputEmail4" value="<?php echo $fetch['email']; ?>">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Fakultas</label>
+                  <input type="text" readonly class="form-control" value="<?php echo $fetch['fakultas']; ?>">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Program Studi</label>
+                  <input type="text" readonly class="form-control" value="<?php echo $fetch['prodi']; ?>">
+                </div>
+                <div class="tombol">
+                    <a href="../views/update_pmahasiswa.php">
+                        <button type="button" class="btn_change">Change</button>
+                    </a>
+                    <a href="../index.php">
+                        <button type="button" class="btn_back">Back</button>
+                    </a>
+                </div>
         </div>
     </div>
 </main>

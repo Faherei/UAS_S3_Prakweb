@@ -31,6 +31,21 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 
 
+if ($chatResult && mysqli_num_rows($chatResult) > 0) {
+    while ($chatRow = mysqli_fetch_assoc($chatResult)) {
+        $sender = $chatRow['sender'];
+        $message = $chatRow['message'];
+        $timestamp = $chatRow['timestamp'];
+
+        // Menampilkan pesan chat
+        echo "<div class='message'>
+                <strong>$sender:</strong> $message <br>
+                <small>$timestamp</small>
+              </div>";
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -125,18 +140,18 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
 
     <!-- Fitur Chat -->
-     <div class="chat">
-      <p>aaa</p>
+    <div class="chat">
       <div id="chat-box">
-        <!-- Tampilan Chat -->
-
-        <!-- Form untuk mengirim pesan -->
-        <form id="chat-form" class="typing">
-          <textarea id="message" class="chatbox" rows="3"></textarea><br>
-          <button class="send btn btn-primary btn-sm" type="submit">Send</button>
-        </form>
+        <!-- Tampilan pesan chat akan muncul di sini -->
       </div>
-     </div>
+      
+      <!-- Form untuk mengirim pesan -->
+      <form id="chat-form" class="typing">
+        <textarea id="message" class="chatbox" rows="3" placeholder="Ketik pesan Anda..."></textarea><br>
+        <button class="send btn btn-primary btn-sm" type="submit">Send</button>
+      </form>
+    </div>
+
   </main>
 </body>
 </html>

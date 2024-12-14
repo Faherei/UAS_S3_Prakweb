@@ -256,3 +256,15 @@ main{
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+
+.message {
+    background-color: #3a3b52;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.message strong {
+    color: #A2A2D0;
+}
