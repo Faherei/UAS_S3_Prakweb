@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cek apakah username atau password kosong
     if (empty($username) || empty($password)) {
         $_SESSION['login_error'] = "Username atau Password kosong"; // Simpan pesan kesalahan di session
-        header("Location: ../index.php");
+        header("Location: index.php");
         exit();
     }
 
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Jika tidak ada yang cocok, set session untuk notifikasi
     $_SESSION['login_error'] = "Username atau Password salah"; // Simpan pesan kesalahan di session
-    header("Location: ../index.php"); // Redirect ke halaman index.php
+    header("Location: index.php"); // Redirect ke halaman index.php
     exit();
 }
 ?>

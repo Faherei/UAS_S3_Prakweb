@@ -25,7 +25,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $nama = $row['nama'];
     $nid = $row['nid'];
     $fakultas = $row['fakultas'];
-    $profilePath = $row['profile']; // Path profil
+    $profile = $row['profile']; // Path profil
 } else {
     die("Data dosen tidak ditemukan.");
 }
@@ -57,7 +57,16 @@ if ($result && mysqli_num_rows($result) > 0) {
   </nav>
   <aside>
     <div class="profile">
-      <img src="../assets/uploads/default-profile.jpeg" alt="Profile Dosen">
+    <?php
+    // Memeriksa apakah path profil tersedia
+    if (!empty($profilePath)) {
+        // Jika ada path profil, tampilkan gambar dari path tersebut
+        echo '<img src="' . $profilePath . '" alt="Profile Dosen" />';
+    } else {
+        // Jika tidak ada path profil, tampilkan gambar default
+        echo '<img src="../assets/uploads/default-profile.jpeg" alt="Profile Dosen" />';
+    }
+    ?>
     </div>
     <div class="biodata">
       Informations
@@ -119,6 +128,8 @@ if ($result && mysqli_num_rows($result) > 0) {
      <div class="chat">
       <p>aaa</p>
       <div id="chat-box">
+        <!-- Tampilan Chat -->
+
         <!-- Form untuk mengirim pesan -->
         <form id="chat-form" class="typing">
           <textarea id="message" class="chatbox" rows="3"></textarea><br>

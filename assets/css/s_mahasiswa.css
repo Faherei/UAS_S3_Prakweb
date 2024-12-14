@@ -216,6 +216,8 @@ header .current-date{
 
 main{
     color: #f5f5f5;
+    width: 100%;
+    min-width: 100%;
     top: 40px;
     grid-area: main;
     background-color: #1e1e2f;
@@ -224,16 +226,19 @@ main{
 /* STYLE */
 .chat{
     margin: 10px;
-    width: 1258px;
-    height: 95%;
+    max-width: 100%;
+    min-height: 95%;
     border-radius: 10px;
+    position: relative;
     background-color: #2a2a3e;
 }
 .typing{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
     padding: 10px;
     height: 60px;
-
 }
 .chatbox{
     width: 100%;
@@ -243,9 +248,6 @@ main{
     border-bottom-right-radius: 0px;
     background-color: #222231;
     color: #f5f5f5;
-}
-.chatbox:focus{
-    border: 1px solid #252549;
 }
 .send{
     border: none;
