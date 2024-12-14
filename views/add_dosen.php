@@ -9,6 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
     $nama = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nama"]))));
     $nid = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nid"]))));
     $fakultas = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["fakultas"]))));
+    $bio = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["bio"]))));
+    $email = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["email"]))));
+    $username = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["username"]))));
+    $password = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["password"]))));
+
 
     // Validasi input tidak boleh kosong
     if (empty($nama) || empty($nid) || empty($fakultas)) {
@@ -22,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
             $error_message = "Dosen dengan NID \"$nid\" sudah ada dalam database.";
         } else {
             // Insert data ke database
-            $query = "INSERT INTO dosen (nama, nid, fakultas) VALUES ('$nama', '$nid', '$fakultas')";
+            $query = "INSERT INTO dosen (nama, nid, fakultas, bio, email, username, password) VALUES ('$nama', '$nid', '$fakultas', '$bio', '$email', '$username', '$password')";
             $result = mysqli_query($link, $query);
 
             if ($result) {
@@ -82,6 +87,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
         <div class="mb-3">
             <label for="fakultas" class="form-label">Fakultas</label>
             <input type="text" id="fakultas" name="fakultas" class="form-control" value="<?php echo isset($fakultas) ? $fakultas : ''; ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <input type="text" id="bio" name="bio" class="form-control" value="<?php echo isset($bio) ? $bio : ''; ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" name="email" class="form-control" value="<?php echo isset($email) ? $email : ''; ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-control" value="<?php echo isset($username) ? $username : ''; ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" id="password" name="password" class="form-control" value="<?php echo isset($password) ? $password : ''; ?>" required>
         </div>
 
         <!-- VALUE Menampilkan kembali data input jika ada kesalahan -->
