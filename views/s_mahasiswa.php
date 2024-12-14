@@ -114,6 +114,18 @@ if ($result && mysqli_num_rows($result) > 0) {
         </form>
       </div>
     </div>
+
+    <!-- Fitur Chat -->
+     <div class="chat">
+      <p>aaa</p>
+      <div id="chat-box">
+        <!-- Form untuk mengirim pesan -->
+        <form id="chat-form" class="typing">
+          <textarea id="message" class="chatbox" rows="3"></textarea><br>
+          <button class="send btn btn-primary btn-sm" type="submit">Send</button>
+        </form>
+      </div>
+     </div>
   </main>
 </body>
 </html>

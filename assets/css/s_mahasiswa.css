@@ -70,6 +70,8 @@ aside{
     height: 240px;
     border-radius: 50%;
 }
+
+
 /* CSS KALENDER AWAL*/
 .wrapper{
     margin-left: 10px;
@@ -165,6 +167,8 @@ header .current-date{
 .days li:not(.active):hover::before{
     background: #222231;
 }
+
+
 /* Kalender Pop-up Modal */
 .modal {
     display: none;
@@ -209,10 +213,44 @@ header .current-date{
     font-size: 15px;
     color: #1D52E0;
 }
-/* CSS KALENDER AKHIR*/
+
 main{
     color: #f5f5f5;
     top: 40px;
     grid-area: main;
     background-color: #1e1e2f;
+}
+
+/* STYLE */
+.chat{
+    margin: 10px;
+    width: 1258px;
+    height: 95%;
+    border-radius: 10px;
+    background-color: #2a2a3e;
+}
+.typing{
+    display: flex;
+    padding: 10px;
+    height: 60px;
+
+}
+.chatbox{
+    width: 100%;
+    border: 1px solid #161625;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: #222231;
+    color: #f5f5f5;
+}
+.chatbox:focus{
+    border: 1px solid #252549;
+}
+.send{
+    border: none;
+    color: #EEEEF0;
+    background-color: #6567A6;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
