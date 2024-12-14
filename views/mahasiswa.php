@@ -1,10 +1,10 @@
 <?php
 // Connection ke database
-include './api/koneksi.php'; // Pastikan file ini memiliki koneksi $db
+include '../api/koneksi.php'; // Pastikan file ini memiliki koneksi $db
 
 // Ambil data dari tabel dosen
-$sql = "SELECT * FROM mahasiswa";
-$result = mysqli_query($conn, $sql);
+$query = "SELECT id, nama FROM mahasiswa";
+$result = mysqli_query($conn, $query);
 
 //Mengecek apakah query gagal
 if (!$result) {

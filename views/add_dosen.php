@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("../api/koneksi.php");
 
 $error_message = "";
 $success_message = "";
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
 <header>
     <nav class="navbar">
         <h1>Tambah Dosen</h1>
-        <a href="./dosen.php">Kembali</a> <!-- saat di klik kembali maka akan terlempar ke dosen -->
+        <a href="home_dosen.php">Kembali</a> <!-- saat di klik kembali maka akan terlempar ke dosen -->
     </nav>
 </header>
 

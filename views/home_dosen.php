@@ -112,10 +112,12 @@ include '../api/verif_dosen.php';
     <!-- Header -->
     <div class="header">
         <div class="d-flex align-items-center">
-            <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+            <a href="leads_dosen.php">  
+                <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+            </a>
             <h1 class="ms-3">Bimbingan Skripsi</h1>
         </div>
-        <a href="../logout.php" class="btn btn-danger">Logout</a>
+        <a href="leads_dosen.php" class="btn btn-danger">Kembali</a>
     </div>
     
     <div class="h">
