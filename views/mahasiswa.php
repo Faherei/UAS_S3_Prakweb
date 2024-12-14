@@ -21,7 +21,7 @@ if (!$result) {
     <!-- Link ke Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link ke CSS eksternal -->
-    <link rel="stylesheet" href="oprator.css">
+    <link rel="stylesheet" href="../assets/css/oprator.css">
 </head>
 <body>
   <!-- Navbar -->

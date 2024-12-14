@@ -23,7 +23,7 @@ if (!$result) {
     <!-- Link ke Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link ke CSS eksternal -->
-    <link rel="stylesheet" href="oprator.css">
+    <link rel="stylesheet" href="../assets/css/oprator.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -35,7 +35,7 @@ if (!$result) {
                 </a>
             </td>
             <td class="dropdown">
-                <span class="dropdown-toggle" data-bs-toggle="dropdown"></span>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown">FAKULTAS</span>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Ekonomi dan Bisnis</a></li>
                     <li><a class="dropdown-item" href="#">Kedokteran</a></li>

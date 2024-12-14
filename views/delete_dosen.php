@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
             // Berhasil menghapus data, arahkan kembali ke halaman utama
-            header("Location: mahasiswa.php?status=deleted");
+            header("Location: home_admin.php?status=deleted");
             exit();
         } else {
             echo "Gagal menghapus data: " . $stmt->error;
