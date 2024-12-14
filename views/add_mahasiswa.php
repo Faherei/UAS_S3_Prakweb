@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("../api/koneksi.php");
 
 $error_message = ""; // Menyimpan pesan error jika terjadi kesalahan (contoh: NIM sudah ada atau input kosong)
 $success_message = ""; //Menyimpan pesan sukses jika data mahasiswa berhasil ditambahkan.
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Mengecek apakah data dikirim meng
           rel="stylesheet" 
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
           crossorigin="anonymous">
-          <link rel="stylesheet" href="add.css">
+          <link rel="stylesheet" href="./add.css">
 </head>
 <body class="bg-light">
     

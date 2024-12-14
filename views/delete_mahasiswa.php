@@ -1,6 +1,6 @@
 <?php
 // Pastikan file ini memiliki koneksi database
-include './api/koneksi.php';
+include '../api/koneksi.php';
 
 // Periksa apakah ID dikirim melalui URL
 if (isset($_GET['id'])) {

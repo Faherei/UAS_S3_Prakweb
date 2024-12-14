@@ -1,6 +1,6 @@
 <?php
 // Pastikan file ini memiliki koneksi database
-include './api/koneksi.php';
+include '../api/koneksi.php';
 
 // Periksa apakah ID dikirim melalui URL
 if (isset($_GET['id'])) {
@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
             // Berhasil menghapus data, arahkan kembali ke halaman utama
-            header("Location: dosen.php?status=deleted");
+            header("Location: mahasiswa.php?status=deleted");
             exit();
         } else {
             echo "Gagal menghapus data: " . $stmt->error;
