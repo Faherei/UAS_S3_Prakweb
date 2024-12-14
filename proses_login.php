@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['fakultas'] = $row_dosen['fakultas'];
             $_SESSION['bio'] = $row_dosen['bio'];
             $_SESSION['email'] = $row_dosen['email'];
-            $_SESSION['gmeet'] = $row_dosen['prodi'];
+            $_SESSION['gmeet'] = $row_dosen['gmeet'];
             $_SESSION['profile'] = $row_dosen['profile'];
             $_SESSION['role'] = 'dosen'; // Simpan peran
             header("Location: views/leads_dosen.php");

@@ -602,10 +602,35 @@ require([
                 </li>
               <li class="user_setting">
                 <div class="dropdown">
-                  <a class="btn dropdown-toggle ccn-profile-menu" href="#" data-toggle="dropdown" aria-expanded="false"><img class="rounded-circle" src="https://leads.upnvj.ac.id/user/pix.php/20678/f1.jpg" alt="2310512143"></a>
+                  <!-- PROFILE -->
+                  <a class="btn dropdown-toggle ccn-profile-menu" href="#" data-toggle="dropdown" aria-expanded="false">
+                  <?php
+                  $dsn = $_SESSION['nama'];
+                  $select = mysqli_query($conn, "SELECT * FROM `dosen` WHERE nama = '$dsn'");
+                  if(mysqli_num_rows($select) > 0){
+                      $fetch = mysqli_fetch_assoc($select);
+                  }
+                  if($fetch['profile'] == ''){
+                      echo '<img src="../assets/uploads/default-profile.jpeg">';
+                  }else{
+                      echo '<img src="../assets/uploads/'.$fetch['profile'].'">';
+                  }
+                  ?>
+                  </a>
                   <div class="dropdown-menu" x-placement="top-start" style="position: absolute; transform: translate3d(-9px, -5px, 0px); top: 0px; left: 0px; will-change: transform;">
                     <div class="user_set_header">
-                      <img class="float-left rounded-circle" src="https://leads.upnvj.ac.id/user/pix.php/20678/f1.jpg" alt="2310512143 FAHRI MUHAIMIN">
+                    <?php
+                    $mhs = $_SESSION['nama'];
+                    $select = mysqli_query($conn, "SELECT * FROM `mahasiswa` WHERE nama = '$mhs'");
+                    if(mysqli_num_rows($select) > 0){
+                        $fetch = mysqli_fetch_assoc($select);
+                    }
+                    if($fetch['profile'] == ''){
+                        echo '<img class="float-left rounded-circle" src="../assets/uploads/default-profile.jpeg">';
+                    }else{
+                        echo '<img class="float-left rounded-circle" src="../assets/uploads/'.$fetch['profile'].'">';
+                    }
+                    ?>
                       <!-- REI ADD - NIM Username Email -->
                       <p><?php echo $_SESSION['nid']; ?> <?php echo $_SESSION['nama']; ?> <br><span class="address"><?php echo $_SESSION['email']; ?></span></p>
                     </div>
@@ -614,7 +639,7 @@ require([
                       <a class="dropdown-item" href="#">
                         <i class="icon fa fa-fw flaticon-puzzle-1"></i>Dashboard</a>
                         <!-- REI ADD - Home User Settings -->
-                        <a class="dropdown-item" href="profile_mahasiswa.php"> <i class="icon fa fa-fw flaticon-student"></i>Profile</a>
+                        <a class="dropdown-item" href="profile_dosen.php"> <i class="icon fa fa-fw flaticon-student"></i>Profile</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-rating"></i>Grades</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-speech-bubble"></i>Messages</a>
                         <a class="dropdown-item" href="#"> <i class="icon fa fa-fw flaticon-settings"></i>Preferences</a>
