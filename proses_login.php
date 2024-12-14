@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['gmeet'] = $row_dosen['prodi'];
             $_SESSION['profile'] = $row_dosen['profile'];
             $_SESSION['role'] = 'dosen'; // Simpan peran
-            header("Location: views/home_dosen.php");
+            header("Location: views/leads_dosen.php");
             exit();
         }
     }
