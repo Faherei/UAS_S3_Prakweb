@@ -17,6 +17,7 @@ $nid = $_SESSION['nid'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/home_dosen.css">
+    <script src="../assets/js/script_kalendar.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -47,9 +48,9 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo "
-        <div class='student-item'>
-            <img src='default-profile.png' alt='Profile'>
-            <div>
+       <div class='student-item'>
+    <img src='../assets/uploads/SANDYA KARSA FINAL.png' alt='Profile'>
+    <div>
                 <h5>{$row['nama']}</h5>
                 <p>ID: {$row['id']}</p>
             </div>
