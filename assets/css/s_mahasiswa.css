@@ -299,12 +299,3 @@ main{
 .sidebar_settings a:hover {
     background-color: #575757;
 }
-
-@media screen and (max-width: 768px) {
-    .sidebar_settings {
-        width: 100%;
-    }
-    nav {
-        padding-left: 20px; /* Adjust navbar padding */
-    }
-}
