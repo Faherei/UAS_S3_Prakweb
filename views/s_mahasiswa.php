@@ -11,13 +11,6 @@ $query = "SELECT d.id, d.nama, d.nid, d.fakultas, d.profile, d.gmeet
           FROM dosen d WHERE d.nid = '$dospem'";
 $result = mysqli_query($conn, $query);
 
-$queryk = "INSERT INTO events (title, start_date, end_date, description) 
-              VALUES ('$title', '$start_date', '$end_date', '$description')";
-    if (mysqli_query($conn, $queryk)) {
-        echo "Event successfully added.";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
 
 // Periksa apakah data ditemukan
 if ($result && mysqli_num_rows($result) > 0) {
