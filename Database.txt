@@ -58,7 +58,6 @@ CREATE TABLE files (
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     uploader_id INT NOT NULL,                -- ID pengupload (bisa mahasiswa atau dosen)
     uploader_type ENUM('mahasiswa', 'dosen') NOT NULL, -- Tipe pengupload
-    FOREIGN KEY (uploader_id) REFERENCES Mahasiswa(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -66,17 +65,6 @@ CREATE TABLE files (
 ALTER TABLE Mahasiswa
 ADD CONSTRAINT fk_mahasiswa_dosenid
 FOREIGN KEY (dosenid) REFERENCES Dosen(nid);
-
--- Membuat tabel chat_messages
-CREATE TABLE chat_messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT NOT NULL,           -- ID pengirim (dosen atau mahasiswa)
-    receiver_id INT NOT NULL,         -- ID penerima (mahasiswa atau dosen)
-    message TEXT NOT NULL,            -- Pesan
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Waktu pesan dikirim
-    FOREIGN KEY (sender_id) REFERENCES Dosen(id),  -- Relasi dengan tabel Dosen
-    FOREIGN KEY (receiver_id) REFERENCES Mahasiswa(id)  -- Relasi dengan tabel Mahasiswa
-);
 
 -- DATA Admin
 INSERT INTO Admin (id, nama, username, password, email) VALUES
