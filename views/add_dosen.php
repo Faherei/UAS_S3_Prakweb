@@ -6,36 +6,38 @@ $success_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang diterima menggunakan metode POST (form dikirim)*/
     // Mengamankan input dari user
-    $nama = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nama"]))));
-    $nid = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nid"]))));
-    $fakultas = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["fakultas"]))));
-    $bio = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["bio"]))));
-    $email = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["email"]))));
-    $username = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["username"]))));
-    $password = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["password"]))));
-
+    $id = isset($_POST['id']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["id"])))) : "";
+    $nama = isset($_POST['nama']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["nama"])))) : "";
+    $nid = isset($_POST['nid']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["nid"])))) : "";
+    $fakultas = isset($_POST['fakultas']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["fakultas"])))) : "";
+    $bio = isset($_POST['bio']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["bio"])))) : "";
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["email"])))) : "";
+    $username = isset($_POST['username']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["username"])))) : "";
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["password"])))) : "";
+    $gmeet = isset($_POST['gmeet']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["gmeet"])))) : "";
+    $profile = isset($_POST['profile']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["profile"])))) : "";
 
     // Validasi input tidak boleh kosong
-    if (empty($nama) || empty($nid) || empty($fakultas)) {
-        $error_message = "Nama dan NID wajib diisi.";
+    if (empty($id) || empty($nama) || empty($nid) || empty($fakultas) || empty($bio) || empty($email) || empty($username) || empty($password) || empty($gmeet) || empty($profile)) {
+        $error_message = "Semua field wajib diisi";
     } else {
         // Cek apakah NID sudah ada
         $query = "SELECT * FROM dosen WHERE nid='$nid'";
-        $result = mysqli_query($link, $query);
+        $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             $error_message = "Dosen dengan NID \"$nid\" sudah ada dalam database.";
         } else {
             // Insert data ke database
-            $query = "INSERT INTO dosen (nama, nid, fakultas, bio, email, username, password) VALUES ('$nama', '$nid', '$fakultas', '$bio', '$email', '$username', '$password')";
-            $result = mysqli_query($link, $query);
+            $query = "INSERT INTO dosen (id, nama, nid, fakultas, bio, email, username, password, gmeet, profile) VALUES ('$id', '$nama', '$nid', '$fakultas', '$bio', '$email', '$username', '$password', '$gmeet', '$profile')";
+            $result = mysqli_query($conn, $query);
 
             if ($result) {
                 $success_message = "Dosen \"$nama\" berhasil ditambahkan.";
                 // Kosongkan input
-                $nama = $nid = $fakultas = "";
+                $id = $nama = $nid = $fakultas = $bio = $email = $username = $password = $gmeet = $profile = "";
             } else {
-                $error_message = "Terjadi kesalahan saat menambahkan dosen: " . mysqli_error($link);
+                $error_message = "Terjadi kesalahan saat menambahkan dosen: " . mysqli_error($conn);
             }
         }
     }
@@ -75,6 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
     <!-- Form -->
     <form method="POST"> <!-- Form menggunakan metode POST untuk mengirim data -->
         <div class="mb-3"> <!-- Pengisian form penambahan data -->
+            <label for="id" class="form-label">ID</label>
+            <input type="text" id="id" name="id" class="form-control" value="<?php echo isset($id) ? $id : ''; ?>" required>
+        </div>
+
+        <div class="mb-3"> <!-- Pengisian form penambahan data -->
             <label for="nama" class="form-label">Nama</label>
             <input type="text" id="nama" name="nama" class="form-control" value="<?php echo isset($nama) ? $nama : ''; ?>" required>
         </div>
@@ -109,6 +116,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
             <input type="text" id="password" name="password" class="form-control" value="<?php echo isset($password) ? $password : ''; ?>" required>
         </div>
 
+        <div class="mb-3">
+            <label for="gmeet" class="form-label">Gmeet</label>
+            <input type="text" id="gmeet" name="gmeet" class="form-control" value="<?php echo isset($gmeet) ? $gmeet : ''; ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="profile" class="form-label">profile</label>
+            <input type="text" id="profile" name="profile" class="form-control" value="<?php echo isset($profile) ? $profile : ''; ?>" required>
+        </div>
+
         <!-- VALUE Menampilkan kembali data input jika ada kesalahan -->
          <!-- REQUIRED Input wajib diisi -->
 
@@ -119,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
 
         <?php
         // Tutup koneksi database
-        if (isset($link) && $link !== null) {
-            mysqli_close($link);
+        if (isset($conn) && $conn !== null) {
+            mysqli_close($conn);
         }
         ?>
     </div>

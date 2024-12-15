@@ -3,6 +3,8 @@
 session_start();
 include '../api/koneksi.php';
 include '../api/verif_dosen.php';
+
+$nid = $_SESSION['nid'];
 ?> 
 
 <!DOCTYPE html>
@@ -39,30 +41,30 @@ include '../api/verif_dosen.php';
         <div class="student-list">
             <?php
             // Query untuk mengambil data mahasiswa
-            $query = "SELECT id, nama FROM mahasiswa";
-            $result = mysqli_query($conn, $query);
+            $query = "SELECT id, nama FROM mahasiswa WHERE dosenid = '$nid'";
+$result = mysqli_query($conn, $query);
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "
-                    <div class='student-item'>
-                        <img src='default-profile.png' alt='Profile'>
-                        <div>
-                            <h5>{$row['nama']}</h5>
-                            <p>ID: {$row['id']}</p>
-                        </div>
-                        <div class='card'>
-                            <div class='card-body'>
-                                <div class='d-flex justify-content-end align-items-center gap-2'>
-                                    <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>";
-                }
-            } else {
-                echo "<p>Belum ada mahasiswa bimbingan.</p>";
-            }
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "
+        <div class='student-item'>
+            <img src='default-profile.png' alt='Profile'>
+            <div>
+                <h5>{$row['nama']}</h5>
+                <p>ID: {$row['id']}</p>
+            </div>
+            <div class='card'>
+                <div class='card-body'>
+                    <div class='d-flex justify-content-end align-items-center gap-2'>
+                        <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>";
+    }
+} else {
+    echo "<p>Belum ada mahasiswa bimbingan.</p>";
+}
             ?>
         </div>
 

@@ -6,33 +6,40 @@ $success_message = ""; //Menyimpan pesan sukses jika data mahasiswa berhasil dit
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Mengecek apakah data dikirim menggunakan metode POST (form dikirimkan)
     // Mengamankan input dari user
-    $nama = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nama"]))));
-    $nim = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nim"]))));
-    $fakultas = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["fakultas"]))));
-    $prodi = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["prodi"]))));
-    $nid = mysqli_real_escape_string($link, htmlentities(strip_tags(trim($_POST["nid"]))));
+   // Mengamankan input dari user
+$id = isset($_POST['id']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["id"])))) : "";
+$nama = isset($_POST['nama']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["nama"])))) : "";
+$nim = isset($_POST['nim']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["nim"])))) : "";
+$fakultas = isset($_POST['fakultas']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["fakultas"])))) : "";
+$prodi = isset($_POST['prodi']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["prodi"])))) : "";
+$email = isset($_POST['email']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["email"])))) : "";
+$username = isset($_POST['username']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["username"])))) : "";
+$password = isset($_POST['password']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["password"])))) : "";
+$dosenid = isset($_POST['dosenid']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["dosenid"])))) : "";
+$nid = $_SESSION['nid'];
 
     // Validasi input tidak boleh kosong
-    if (empty($nama) || empty($nim) || empty($fakultas) || empty($prodi)) {
+    if (empty($id) || empty($nama) || empty($nim) || empty($fakultas) || empty($prodi) || empty($email) || empty($username) || empty($password) || empty($dosenid)) {
         $error_message = "Semua field wajib diisi.";
     } else {
         // Cek apakah NIM sudah ada
         $query = "SELECT * FROM mahasiswa WHERE nim='$nim'";
-        $result = mysqli_query($link, $query);
+        $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             $error_message = "Mahasiswa dengan NIM \"$nim\" sudah ada dalam database.";
         } else {
             // Insert data ke database
-            $query = "INSERT INTO mahasiswa (nama, nim, fakultas, prodi, nid) VALUES ('$nama', '$nim', '$fakultas', '$prodi', '$nid')";
-            $result = mysqli_query($link, $query);
+            $query = "INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `fakultas`, `prodi`, `email`, `username`, `password`, `dosenid`) VALUES
+            ($id, '$nama', '$nim', '$fakultas', '$prodi', '$email', '$username', '$password', '$dosenid')";
+            $result = mysqli_query($conn, $query);
 
             if ($result) {
                 $success_message = "Mahasiswa \"$nama\" berhasil ditambahkan.";
                 // Kosongkan input
-                $nama = $nim = $fakultas = $prodi = $nid = "";
+                $id = $nama = $nim = $fakultas = $prodi = $email = $username = $password = $dosenid = "";
             } else {
-                $error_message = "Terjadi kesalahan saat menambahkan mahasiswa: " . mysqli_error($link);
+                $error_message = "Terjadi kesalahan saat menambahkan mahasiswa: " . mysqli_error($conn);
             }
         }
     }
@@ -54,7 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Mengecek apakah data dikirim meng
 <header>
     <nav class="navbar">
         <h1>Tambah Mahasiswa</h1>
-        <a href="./dosen.php">Kembali</a>
+        <a href="mahasiswa.php<?php echo $nid; ?>">Kembali</a>
+
     </nav>
 </header>
 
@@ -64,36 +72,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Mengecek apakah data dikirim meng
         <div class="alert alert-danger"><?php echo $error_message; ?></div> <!-- Menampilkan alert error (dengan kelas alert-danger) jika ada kesalahan -->
     <?php endif; ?>
 
-    <?php if (!empty($success_message)): ?>
+    <?php if (!empty($success_messsage)): ?>
         <div class="alert alert-success"><?php echo $success_message; ?></div> <!-- Menampilkan alert sukses (dengan kelas alert-success) jika data berhasil ditambahkan-->
     <?php endif; ?>
 
     <!-- Form -->
     <form method="POST"> <!-- Form dikirimkan menggunakan metode POST ke file ini sendiri -->
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama</label>
-            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo isset($nama) ? $nama : ''; ?>" required>
-        </div>
+       <div class="mb-3">
+    <label for="id" class="form-label">ID</label>
+    <input type="text" id="id" name="id" class="form-control" value="<?php echo isset($id) ? $id : ''; ?>" required>
+</div>
 
-        <div class="mb-3">
-            <label for="nim" class="form-label">NIM</label>
-            <input type="text" id="nim" name="nim" class="form-control" value="<?php echo isset($nim) ? $nim : ''; ?>" required>
-        </div>
+<div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input type="text" id="nama" name="nama" class="form-control" value="<?php echo isset($nama) ? $nama : ''; ?>" required>
+</div>
 
-        <div class="mb-3">
-            <label for="fakultas" class="form-label">Fakultas</label>
-            <input type="text" id="fakultas" name="fakultas" class="form-control" value="<?php echo isset($fakultas) ? $fakultas : ''; ?>" required>
-        </div>
+<div class="mb-3">
+    <label for="nim" class="form-label">NIM</label>
+    <input type="text" id="nim" name="nim" class="form-control" value="<?php echo isset($nim) ? $nim : ''; ?>" required>
+</div>
 
-        <div class="mb-3">
-            <label for="prodi" class="form-label">Program Studi</label>
-            <input type="text" id="prodi" name="prodi" class="form-control" value="<?php echo isset($prodi) ? $prodi : ''; ?>" required>
-        </div>
+<div class="mb-3">
+    <label for="fakultas" class="form-label">Fakultas</label>
+    <input type="text" id="fakultas" name="fakultas" class="form-control" value="<?php echo isset($fakultas) ? $fakultas : ''; ?>" required>
+</div>
 
-        <div class="mb-3">
-            <label for="nid" class="form-label">NID</label>
-            <input type="text" id="nid" name="nid" class="form-control" value="<?php echo isset($nid) ? $nid : ''; ?>" required>
-        </div>
+<div class="mb-3">
+    <label for="prodi" class="form-label">Program Studi</label>
+    <input type="text" id="prodi" name="prodi" class="form-control" value="<?php echo isset($prodi) ? $prodi : ''; ?>" required>
+</div>
+
+<div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-control" value="<?php echo isset($email) ? $email : ''; ?>" required>
+</div>
+
+<div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" id="username" name="username" class="form-control" value="<?php echo isset($username) ? $username : ''; ?>" required>
+</div>
+
+<div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" class="form-control" value="<?php echo isset($password) ? $password : ''; ?>" required>
+</div>
+
+<div class="mb-3">
+    <label for="dosenid" class="form-label">Dosen ID</label>
+    <input type="text" id="dosenid" name="dosenid" class="form-control" value="<?php echo isset($dosenid) ? $dosenid : ''; ?>" required>
+</div>
+
 
          <!-- VALUE Menampilkan kembali data input jika ada kesalahan -->
          <!-- REQUIRED Input wajib diisi -->
@@ -104,8 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Mengecek apakah data dikirim meng
 
 <?php
 // Tutup koneksi database
-if (isset($link) && $link !== null) {
-    mysqli_close($link);
+if (isset($conn) && $conn !== null) {
+    mysqli_close($conn);
 }
 ?>
 
