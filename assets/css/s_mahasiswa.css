@@ -246,6 +246,7 @@ main {
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 10px;
   height: 32px;
 }
 .chatbox {
@@ -277,7 +278,7 @@ main {
   color: #a2a2d0;
 }
 
-/* Memastikan sidebar berfungsi dengan baik pada berbagai ukuran layar */
+/* STYLE SIDEBAR */
 .sidebar_settings {
   height: 100%;
   width: 0;
@@ -303,4 +304,9 @@ main {
 
 .sidebar_settings a:hover {
   background-color: #575757;
+}
+
+.f-list{
+  margin-top: 100px;
+  padding-left: 10px;
 }

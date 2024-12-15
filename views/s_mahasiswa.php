@@ -36,8 +36,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     <title>Bimbingan Skripsi</title>
     <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> <!-- Bootsrap -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- Icon pada kalender -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css"> <!-- native style-->
     <script src="../assets/js/script_kalendar.js" defer></script> <!-- script kalender-->
     <script src="../assets/js/script_sidebar.js"></script> <!-- script sidebar -->
 
@@ -50,7 +50,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     </a>
     <button type="button" class="settings btn btn-secondary btn-sm" onclick="openSidebar()">&#9776;</button> <!-- Tombol untuk membuka sidebar -->
     <a href="<?php echo $gmeet ?>">
-      <button type="button" class="meeting btn btn-primary btn-sm ">Start Meeting</button>
+      <button type="button" class=" meeting btn btn-primary btn-sm ">Start Meeting</button>
     </a>
   </nav>
   <aside>
@@ -121,12 +121,13 @@ if ($result && mysqli_num_rows($result) > 0) {
 
     <!-- Sidebar -->
     <div id="sidebar_settings" class="sidebar_settings">
-    <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
-        <ul>
-            <li><a href="#">Profiles</a></li>
-            <li><a href="#">Settingss</a></li>
-            <li><a href="#">Logouts</a></li>
-        </ul>
+      <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
+      <div class="f-list">
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+      </div>
+    </div>
     </div>
 
     <!-- Fitur Chat -->
