@@ -103,7 +103,7 @@ $result = $stmt->get_result();
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
                         <td><div class="circle"></div></td>
-                        <td><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
+                        <td style="width: 90%;"><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
                         <td class="delete-cell">
                             <a href="delete_mahasiswa.php?id=<?php echo $row['id']; ?>" 
                                onclick="return confirm('Yakin ingin menghapus data ini?');" 
