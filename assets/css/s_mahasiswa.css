@@ -1,301 +1,299 @@
-body{
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
     "sidebar navbar"
     "sidebar main";
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
-.meeting{
-    border: none;
-    color: #EEEEF0;
-    background-color: #6567A6;
-    height: 32px;
-    margin-top: 3px;
-    margin-right: 10px;
-    float: right;
+.meeting {
+  border: none;
+  color: #eeeef0;
+  background-color: #6567a6;
+  height: 32px;
+  margin-top: 3px;
+  margin-right: 10px;
+  float: right;
 }
-.meeting:hover{
-    background-color: #595A97;
+.meeting:hover {
+  background-color: #595a97;
 }
 .settings {
-    height: 32px;
-    margin-top: 3px;
-    margin-right: 10px;
-    float: right;
-    background-color: #6C6E79;
+  height: 32px;
+  margin-top: 3px;
+  margin-right: 10px;
+  float: right;
+  background-color: #6c6e79;
 }
-.settings:hover{
-    background-color: #797B86;
+.settings:hover {
+  background-color: #797b86;
 }
 
-nav{
-    grid-area: navbar;
-    top: 0;
-    align-self: start;
-    position: sticky;
-    min-height: 60x;
-    color: white;
-    background-color: #252549;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
+nav {
+  grid-area: navbar;
+  top: 0;
+  align-self: start;
+  position: sticky;
+  min-height: 60x;
+  color: white;
+  background-color: #252549;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }
-nav img{
-    width: 200px;
+nav img {
+  width: 200px;
 }
-aside{
-    color: #f5f5f5;
-    grid-area: sidebar;
-    top: 0;
-    align-self: start;
-    position: sticky;
-    height: 100vh;
-    background-color: #161625;
+aside {
+  color: #f5f5f5;
+  grid-area: sidebar;
+  top: 0;
+  align-self: start;
+  position: sticky;
+  height: 100vh;
+  background-color: #161625;
 }
-.profile{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+.profile {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
-.profile img{
-    width: auto;
-    height: 240px;
-    border-radius: 50%;
+.profile img {
+  width: auto;
+  height: 240px;
+  border-radius: 50%;
 }
-.biodata{
-    padding-left: 30px;
+.biodata {
+  padding-left: 30px;
 }
 
 /* CSS KALENDER AWAL*/
-.wrapper{
-    margin-left: 10px;
-    max-width: 280px;
-    background: #2a2a3e;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+.wrapper {
+  margin-left: 10px;
+  max-width: 280px;
+  background: #2a2a3e;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
-.wrapper header{
-    display: flex;
-    align-items: center;
-    padding: 25px 30px 10px;
-    justify-content: space-between;
+.wrapper header {
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
 }
-header .icons{
-    display: flex;
+header .icons {
+  display: flex;
 }
-header .icons span{
-    height: 38px;
-    width: 38px;
-    margin: 0 1px;
-    cursor: pointer;
-    color: #8B8CB0;
-    text-align: center;
-    line-height: 38px;
-    font-size: 1.9rem;
-    user-select: none;
-    border-radius: 50%;
+header .icons span {
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #8b8cb0;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
 }
-header .icons span:last-child{
-    margin-right: -10px;
+header .icons span:last-child {
+  margin-right: -10px;
 }
-header .icons span:hover{
-    background-color: #222231;
-    
+header .icons span:hover {
+  background-color: #222231;
 }
-header .current-date{
-    font-size: 1.45rem;
-    font-weight: 500;
+header .current-date {
+  font-size: 1.45rem;
+  font-weight: 500;
 }
-.calendar{
-    padding-left: 0;
-    padding-right: 20px;
-    min-height: 350px;
-    font-family:arial;
-    margin: 0;
+.calendar {
+  padding-left: 0;
+  padding-right: 20px;
+  min-height: 350px;
+  font-family: arial;
+  margin: 0;
 }
-.calendar ul{
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    text-align: center;
+.calendar ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
 }
-.calendar .days{
-    margin-bottom: 20px;
+.calendar .days {
+  margin-bottom: 20px;
 }
-.calendar li{
-    color: #EEEEF0;
-    width: calc(100% / 7);
-    font-size: 1.07rem;
-}
-
-.calendar .weeks li{
-    font-weight: 500;
-    cursor: default;
-}
-.calendar .days li{
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
-    margin-top: 30px;
-}
-.days li.inactive{
-    color: #4C4C6C;
-}
-.days li.active{
-    color: #101018;
-}
-.calendar .days li::before{
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    height: 30px;
-    width: 30px;
-    z-index: -1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-.days li.active::before{
-    background-color: #EAEBFE;
-}
-.days li:not(.active):hover::before{
-    background: #222231;
+.calendar li {
+  color: #eeeef0;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
 }
 
+.calendar .weeks li {
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li {
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive {
+  color: #4c4c6c;
+}
+.days li.active {
+  color: #101018;
+}
+.calendar .days li::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 30px;
+  width: 30px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before {
+  background-color: #eaebfe;
+}
+.days li:not(.active):hover::before {
+  background: #222231;
+}
 
 /* Kalender Pop-up Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    max-width: 500px;
-    background: #fff;
-    color:#101018;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 2px 5px rgba(0, 0, 0, 0.05);
-    transition: all 300ms ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 500px;
+  background: #fff;
+  color: #101018;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 300ms ease-in-out;
 }
-.btn_submit{
-    float: right;
-    min-width: 68px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 15px;
-    font-size: 15px;
-    background-color: #1D52E0;
-    color: #EEEEF0;
+.btn_submit {
+  float: right;
+  min-width: 68px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  background-color: #1d52e0;
+  color: #eeeef0;
 }
-.btn_cancel{
-    float: left;
-    margin-top: 8px;
-    margin-right: 10px;
-    border: none;
-    background-color: transparent;
-    font-size: 15px;
-    color: #1D52E0;
+.btn_cancel {
+  float: left;
+  margin-top: 8px;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  color: #1d52e0;
 }
 
-main{
-    color: #f5f5f5;
-    width: 100%;
-    min-width: 100%;
-    top: 40px;
-    grid-area: main;
-    background-color: #1e1e2f;
+main {
+  color: #f5f5f5;
+  width: 100%;
+  min-width: 100%;
+  top: 40px;
+  grid-area: main;
+  background-color: #1e1e2f;
 }
 
 /* STYLE */
-.chat{
-    margin: 10px;
-    max-width: 100%;
-    min-height: 95%;
-    border-radius: 10px;
-    position: relative;
-    background-color: #2a2a3e;
+.chat {
+  margin: 10px;
+  max-width: 100%;
+  min-height: 95%;
+  border-radius: 10px;
+  position: relative;
+  background-color: #2a2a3e;
 }
-.typing{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    padding: 10px;
-    height: 60px;
+.typing {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  height: 60px;
 }
-.chatbox{
-    width: 100%;
-    border: 1px solid #161625;
-    border-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    background-color: #222231;
-    color: #f5f5f5;
+.chatbox {
+  width: 100%;
+  border: 1px solid #161625;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: #222231;
+  color: #f5f5f5;
 }
-.send{
-    border: none;
-    color: #EEEEF0;
-    background-color: #6567A6;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+.send {
+  border: none;
+  color: #eeeef0;
+  background-color: #6567a6;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .message {
-    background-color: #3a3b52;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    color: white;
+  background-color: #3a3b52;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
 }
 
 .message strong {
-    color: #A2A2D0;
+  color: #a2a2d0;
 }
 
 /* Memastikan sidebar berfungsi dengan baik pada berbagai ukuran layar */
 .sidebar_settings {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    right: 0;
-    background-color: #161625;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 5px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  background-color: #161625;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 5px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar_settings a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #f5f5f5;
-    display: block;
-    transition: 0.5s;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #f5f5f5;
+  display: block;
+  transition: 0.5s;
 }
 
 .sidebar_settings a:hover {
-    background-color: #575757;
+  background-color: #575757;
 }
