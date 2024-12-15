@@ -122,8 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
         </div>
 
         <div class="mb-3">
-            <label for="profile" class="form-label">profile</label>
-            <input type="text" id="profile" name="profile" class="form-control" value="<?php echo isset($profile) ? $profile : ''; ?>" required>
+          <label for="profile" class="form-label">profile</label>
+          <input class="form-control" type="file" id="profile" name="profile" value="<?php echo isset($profile) ? $profile : ''; ?>">
         </div>
 
         <!-- VALUE Menampilkan kembali data input jika ada kesalahan -->
