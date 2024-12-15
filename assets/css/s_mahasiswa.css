@@ -164,10 +164,15 @@ header .current-date {
   transform: translate(-50%, -50%);
 }
 .days li.active::before {
-  background-color: #eaebfe;
+    background-color: #eaebfe;
 }
 .days li:not(.active):hover::before {
-  background: #222231;
+    background: #222231;
+}
+/* STYLE EVENT */
+.days li.has-event {
+    background-color: red;  /* Tanggal dengan event diberi warna latar */
+    color: #fff;
 }
 
 /* Kalender Pop-up Modal */
@@ -215,6 +220,7 @@ header .current-date {
   color: #1d52e0;
 }
 
+
 main {
   color: #f5f5f5;
   width: 100%;
@@ -224,7 +230,7 @@ main {
   background-color: #1e1e2f;
 }
 
-/* STYLE */
+/* STYLE CHAT*/
 .chat {
   margin: 10px;
   max-width: 100%;

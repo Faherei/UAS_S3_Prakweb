@@ -11,6 +11,14 @@ $query = "SELECT d.id, d.nama, d.nid, d.fakultas, d.profile, d.gmeet
           FROM dosen d WHERE d.nid = '$dospem'";
 $result = mysqli_query($conn, $query);
 
+$queryk = "INSERT INTO events (title, start_date, end_date, description) 
+              VALUES ('$title', '$start_date', '$end_date', '$description')";
+    if (mysqli_query($conn, $queryk)) {
+        echo "Event successfully added.";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
 // Periksa apakah data ditemukan
 if ($result && mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -33,10 +41,10 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bimbingan Skripsi</title>
-    <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png"> <!-- Icon Leads -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootsrap -->
+    <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> <!-- Bootsrap -->
     <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Icon pada kalender -->
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- Icon pada kalender -->
     <script src="../assets/js/script_kalendar.js" defer></script> <!-- script kalender-->
     <script src="../assets/js/script_sidebar.js"></script> <!-- script sidebar -->
 
