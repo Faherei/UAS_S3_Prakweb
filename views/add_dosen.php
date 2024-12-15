@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { /* Mengecek apakah permintaan yang d
           crossorigin="anonymous">
           <link rel="stylesheet" href="../assets/css/tambah.css">
 </head>
-<body class="bg-light">
+<body class="latarb">
     
 <header>
     <nav class="navbar">

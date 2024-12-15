@@ -60,7 +60,7 @@ $nid1 = isset($_GET['nid']) ? $_GET['nid'] : '';
           crossorigin="anonymous">
           <link rel="stylesheet" href="../assets/css/tambah.css">
 </head>
-<body class="bg-dark">
+<body class="latarb">
     
 <header>
     <nav class="navbar">

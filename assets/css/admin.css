@@ -84,6 +84,7 @@ table.navbar .dropdown-menu li a:hover {
   border-radius: 5px; /* Membuat sudut tombol membulat */
   cursor: pointer; /* Menampilkan pointer saat tombol dihover */
   transition: background-color 0.3s ease; /* Animasi perubahan warna saat hover */
+  margin-left: 10px;
 }
 
 /* Hover effect tombol */
@@ -117,4 +118,32 @@ table.nama-list tr {
 /* Styling untuk setiap sel dalam daftar */
 table.nama-list td {
   padding: 10px; 
+  position: relative; /* Menambahkan posisi relatif untuk sel */
+}
+
+h3 {
+  color: #f5f5f5;
+}
+
+/* buat button */
+.terbang {
+  float: right;
+}
+
+/* Styling nama */
+.nama-tulisan {
+  font-size: 16px; /* Ukuran teks nama dosen */
+  color: #f5f5f5; /* Warna teks nama dosen */
+  text-align: left; /* Memastikan nama dosen rata kiri */
+  margin-left: 10px; /* Memberi jarak antara lingkaran dan nama dosen */
+}
+
+.latarb {
+  background-color: #1e1e2f ;
+}
+
+/* Styling untuk tombol */
+.tombul {
+  margin-left: 5px; /* Memberi jarak antar tombol */
+  float: right;
 }
