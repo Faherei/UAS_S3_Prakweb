@@ -33,6 +33,7 @@ a{
 .settings:hover{
     background-color: #797B86;
 }
+
 nav{
     grid-area: navbar;
     top: 0;
@@ -70,7 +71,9 @@ aside{
     height: 240px;
     border-radius: 50%;
 }
-
+.biodata{
+    padding-left: 30px;
+}
 
 /* CSS KALENDER AWAL*/
 .wrapper{
@@ -267,4 +270,41 @@ main{
 
 .message strong {
     color: #A2A2D0;
+}
+
+/* Memastikan sidebar berfungsi dengan baik pada berbagai ukuran layar */
+.sidebar_settings {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #161625;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 5px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar_settings a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f5f5f5;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar_settings a:hover {
+    background-color: #575757;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar_settings {
+        width: 100%;
+    }
+    nav {
+        padding-left: 20px; /* Adjust navbar padding */
+    }
 }

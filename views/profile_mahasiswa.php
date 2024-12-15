@@ -25,16 +25,16 @@ $mhs = $_SESSION['nama'];
             <h2>DASHBOARD/PROFILE</h2><br>
             <div class="profil">
                 <?php
-            $select = mysqli_query($conn, "SELECT * FROM `mahasiswa` WHERE nama = '$mhs'");
-            if(mysqli_num_rows($select) > 0){
-                $fetch = mysqli_fetch_assoc($select);
-            }
-            if($fetch['profile'] == ''){
-                echo '<img src="../assets/uploads/default-profile.jpeg">';
-            }else{
-                echo '<img src="../assets/uploads/'.$fetch['profile'].'">';
-            }
-            ?>
+                $select = mysqli_query($conn, "SELECT * FROM `mahasiswa` WHERE nama = '$mhs'");
+                if(mysqli_num_rows($select) > 0){
+                    $fetch = mysqli_fetch_assoc($select);
+                }
+                if($fetch['profile'] == ''){
+                    echo '<img src="../assets/uploads/default-profile.jpeg">';
+                }else{
+                    echo '<img src="../assets/uploads/'.$fetch['profile'].'">';
+                }
+                ?>
         </div>
         <div class="card-body">
             <h3><?php echo $fetch['nim']; ?><span> <?php echo $fetch['nama']; ?></span></h3>
