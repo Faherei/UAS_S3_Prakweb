@@ -38,7 +38,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Icon pada kalender -->
     <script src="../assets/js/script_kalendar.js" defer></script> <!-- script kalender-->
-    <script src="../assets/js/script_sidebar.js"></script>
+    <script src="../assets/js/script_sidebar.js"></script> <!-- script sidebar -->
 
 
 </head>
