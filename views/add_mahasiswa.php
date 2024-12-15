@@ -65,7 +65,7 @@ $nid1 = isset($_GET['nid']) ? $_GET['nid'] : '';
 <header>
     <nav class="navbar">
         <h1>Tambah Mahasiswa</h1>
-        <a href="mahasiswa.php?nid=<?php echo urlencode($nid1); ?>">Kembali</a>
+        <button class="btn btn-primary" onclick="window.location.href='home_admin.php'">Kembali</button>
     </nav>
 </header>
 
