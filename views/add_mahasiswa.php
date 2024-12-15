@@ -44,6 +44,10 @@ $nid = $_SESSION['nid'];
         }
     }
 }
+
+// Ambil NID dosen dari URL
+$nid1 = isset($_GET['nid']) ? $_GET['nid'] : '';
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -54,15 +58,14 @@ $nid = $_SESSION['nid'];
           rel="stylesheet" 
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
           crossorigin="anonymous">
-          <link rel="stylesheet" href="../assets/css/add.css">
+          <link rel="stylesheet" href="../assets/css/tambah.css">
 </head>
-<body class="bg-light">
+<body class="bg-dark">
     
 <header>
     <nav class="navbar">
         <h1>Tambah Mahasiswa</h1>
-        <a href="mahasiswa.php<?php echo $nid; ?>">Kembali</a>
-
+        <a href="mahasiswa.php?nid=<?php echo urlencode($nid1); ?>">Kembali</a>
     </nav>
 </header>
 

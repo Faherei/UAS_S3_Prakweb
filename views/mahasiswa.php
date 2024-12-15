@@ -40,7 +40,7 @@ $result = $stmt->get_result();
     <!-- Link ke Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link ke CSS eksternal -->
-    <link rel="stylesheet" href="../assets/css/oprator.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -89,11 +89,11 @@ $result = $stmt->get_result();
     
     <!-- Kontainer Utama -->
     <div class="container mt-4">
-        <a href="home_admin.php" class="btn btn-danger btn-sm">Kembali</a>
         <h3>Daftar Mahasiswa - <?php echo htmlspecialchars($dosen_nama); ?></h3>
 
         <!-- Tombol Add -->
         <div class="add-button">
+            <button onclick="window.location.href='home_admin.php'" class="btn btn-danger btn-sm">Kembali</button> 
             <button onclick="window.location.href='add_mahasiswa.php'">Add</button> 
         </div>
 

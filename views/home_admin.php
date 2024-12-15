@@ -23,7 +23,7 @@ if (!$result) {
     <!-- Link ke Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link ke CSS eksternal -->
-    <link rel="stylesheet" href="../assets/css/oprator.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -74,12 +74,14 @@ if (!$result) {
 
     <!-- Kontainer Utama -->
    <div class="container mt-4"> <!-- Area konten utama, dengan margin atas (mt-4) untuk jarak dari atas -->
+        <!-- Daftar Dosen -->
+        <h3>Daftar Dosen</h3>
+
         <!-- Tombol Add -->
         <div class="add-button">
             <button onclick="window.location.href='add_dosen.php'">Add</button> <!-- jika di klik maka akan ke lempar ke halaman dosen -->
         </div>
-
-        <!-- Daftar Dosen -->
+        
         <?php if ($result->num_rows > 0): ?>
             <table class="nama-list">
                 <?php while ($row = $result->fetch_assoc()): ?> <!-- Loop untuk membaca setiap baris data dalam bentuk array asosiatif -->
