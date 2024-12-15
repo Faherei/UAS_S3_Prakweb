@@ -122,9 +122,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div id="sidebar_settings" class="sidebar_settings">
     <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
         <ul>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">Profiles</a></li>
+            <li><a href="#">Settingss</a></li>
+            <li><a href="#">Logouts</a></li>
         </ul>
     </div>
 
