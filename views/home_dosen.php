@@ -70,86 +70,57 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
         <!-- Calendar -->
-        <div class="calendar-container">
-            <div class="wrapper">
-                <header>
-                    <p class="current-date">December 2024</p><br>
-                    <div class="icons">
-                        <span id="prev" class="material-icons">chevron_left</span>
-                        <span id="next" class="material-icons">chevron_right</span>
+        <div class="kalender">
+        <div class="wrapper">
+            <header>
+                <p class="current-date">December2024</p><br>
+                <div class="icons">
+                    <span id="prev" class="material-icons">chevron_left</span>
+                    <span id="next" class="material-icons">chevron_right</span>
                     </div>
-                </header>
-                <div class="calendar">
-                    <ul class="weeks">
-                        <li>Sun</li>
-                        <li>Mon</li>
-                        <li>Tue</li>
-                        <li>Wed</li>
-                        <li>Thu</li>
-                        <li>Fri</li>
-                        <li>Sat</li>
-                    </ul>
-                    <ul class="days"></ul>
-                </div>
-            </div>
+            </header>
+          <div class="calendar">
+            <ul class="weeks">
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+            <ul class="days"></ul>
         </div>
+      </div>
     </div>
+    <!-- Modal untuk Tambah Event -->
+    <div id="event-modal" class="modal">
+      <div class="modal-content">
+        <form id="event-form" action="../API/server_kalender.php" method="POST">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Judul" required >
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="start-date" class="form-label">Tanggal Mulai:</label>
+              <input type="datetime-local" class="form-control" id="start-date" name="start_date" required>
+            </div>
+            <div class="col-md-6">
+              <label for="end-date" class="form-label">Tanggal Selesai:</label>
+              <input type="datetime-local" class="form-control" id="end-date" name="end_date" required>
+            </div>
+          </div><br>
+          <div class="input-group">
+            <span class="input-group-text">Deskripsi:</span>
+            <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+          </div>
+          <button type="submit" class="btn_submit">Submit</button>
+          <button type="button" class="close btn_cancel">cancel</button>
+        </form>
+      </div>
+    </div>
+    </div>
+    
 
-    <script>
-        const daysTag = document.querySelector(".days"),
-        currentDate = document.querySelector(".current-date"),
-        prevNextIcon = document.querySelectorAll(".icons span");
-
-        let date = new Date(),
-        currYear = date.getFullYear(),
-        currMonth = date.getMonth();
-
-        const months = ["January", "February", "March", "April", "May", "June", "July",
-                        "August", "September", "October", "November", "December"];
-
-        const renderCalendar = () => {
-            let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
-                lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
-                lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
-                lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-
-            let liTag = "";
-
-            for (let i = firstDayofMonth; i > 0; i--) {
-                liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-            }
-
-            for (let i = 1; i <= lastDateofMonth; i++) {
-                let dateStr = `${currYear}-${String(currMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
-                let isToday = i === date.getDate() && currMonth === new Date().getMonth()
-                            && currYear === new Date().getFullYear() ? "active" : "";
-
-                liTag += `<li class="${isToday}" data-date="${dateStr}">${i}</li>`;
-            }
-
-            for (let i = lastDayofMonth; i < 6; i++) {
-                liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-            }
-            currentDate.innerText = `${months[currMonth]} ${currYear}`;
-            daysTag.innerHTML = liTag;
-        };
-
-        renderCalendar();
-
-        prevNextIcon.forEach(icon => {
-            icon.addEventListener("click", () => {
-                currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-                if (currMonth < 0 || currMonth > 11) {
-                    date = new Date(currYear, currMonth, new Date().getDate());
-                    currYear = date.getFullYear();
-                    currMonth = date.getMonth();
-                } else {
-                    date = new Date();
-                }
-                renderCalendar();
-            });
-        });
-    </script>
 </body>
 </html>

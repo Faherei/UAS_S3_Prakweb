@@ -41,6 +41,8 @@ if ($mahasiswa_id) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/s_dosen.css">
     <script src="../assets/js/script_sidebar.js"></script> <!-- script sidebar -->
+    <script src="../assets/js/script_kalendar.js"></script> <!-- Pastikan path file ini benar -->
+
 </head>
 <body>
     <div class="sidebar">
