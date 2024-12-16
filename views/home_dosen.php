@@ -42,85 +42,81 @@ $nid = $_SESSION['nid'];
         <div class="student-list">
             <?php
             // Query untuk mengambil data mahasiswa
-            $query = "SELECT id, nama FROM mahasiswa WHERE dosenid = '$nid'";
-$result = mysqli_query($conn, $query);
+            $query = "SELECT id, nama, profile FROM Mahasiswa WHERE dosenid = '$nid'";
+            $result = mysqli_query($conn, $query);
 
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "
-       <div class='student-item'>
-    <img src='../assets/uploads/SANDYA KARSA FINAL.png' alt='Profile'>
-    <div>
-                <h5>{$row['nama']}</h5>
-                <p>ID: {$row['id']}</p>
-            </div>
-            <div class='card'>
-                <div class='card-body'>
-                    <div class='d-flex justify-content-end align-items-center gap-2'>
-                        <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
-                    </div>
-                </div>
-            </div>
-        </div>";
-    }
-} else {
-    echo "<p>Belum ada mahasiswa bimbingan.</p>";
-}
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    // Cek apakah ada foto profil atau gunakan foto default
+                    $foto_path = !empty($row['profile']) ? "../assets/uploads/{$row['profile']}" : '../assets/uploads/default_profile.png';
+                    echo "
+                    <div class='student-item d-flex align-items-center mb-4'>
+                        <img src='$foto_path' alt='Profile' style='width:100px; height:100px; object-fit:cover; border-radius:50%; margin-right:20px;'>
+                        <div>
+                            <h5>{$row['nama']}</h5>
+                            <p>ID: {$row['id']}</p>
+                        </div>
+                        <div class='ms-auto'>
+                            <a href='s_dosen.php?mahasiswa_id={$row['id']}' class='btn btn-primary'>Chat</a>
+                        </div>
+                    </div>";
+                }
+            } else {
+                echo "<p>Belum ada mahasiswa bimbingan.</p>";
+            }
             ?>
         </div>
 
         <!-- Calendar -->
         <div class="kalender">
-        <div class="wrapper">
-            <header>
-                <p class="current-date">December2024</p><br>
-                <div class="icons">
-                    <span id="prev" class="material-icons">chevron_left</span>
-                    <span id="next" class="material-icons">chevron_right</span>
+            <div class="wrapper">
+                <header>
+                    <p class="current-date">December 2024</p><br>
+                    <div class="icons">
+                        <span id="prev" class="material-icons">chevron_left</span>
+                        <span id="next" class="material-icons">chevron_right</span>
                     </div>
-            </header>
-          <div class="calendar">
-            <ul class="weeks">
-              <li>Sun</li>
-              <li>Mon</li>
-              <li>Tue</li>
-              <li>Wed</li>
-              <li>Thu</li>
-              <li>Fri</li>
-              <li>Sat</li>
-            </ul>
-            <ul class="days"></ul>
+                </header>
+                <div class="calendar">
+                    <ul class="weeks">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="days"></ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- Modal untuk Tambah Event -->
-    <div id="event-modal" class="modal">
-      <div class="modal-content">
-        <form id="event-form" action="../API/server_kalender.php" method="POST">
-          <div class="mb-3">
-            <input type="text" class="form-control" id="title" name="title" placeholder="Judul" required >
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="start-date" class="form-label">Tanggal Mulai:</label>
-              <input type="datetime-local" class="form-control" id="start-date" name="start_date" required>
+        <!-- Modal untuk Tambah Event -->
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <form id="event-form" action="../API/server_kalender.php" method="POST">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Judul" required >
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="start-date" class="form-label">Tanggal Mulai:</label>
+                            <input type="datetime-local" class="form-control" id="start-date" name="start_date" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="end-date" class="form-label">Tanggal Selesai:</label>
+                            <input type="datetime-local" class="form-control" id="end-date" name="end_date" required>
+                        </div>
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-text">Deskripsi:</span>
+                        <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                    </div>
+                    <button type="submit" class="btn_submit">Submit</button>
+                    <button type="button" class="close btn_cancel">cancel</button>
+                </form>
             </div>
-            <div class="col-md-6">
-              <label for="end-date" class="form-label">Tanggal Selesai:</label>
-              <input type="datetime-local" class="form-control" id="end-date" name="end_date" required>
-            </div>
-          </div><br>
-          <div class="input-group">
-            <span class="input-group-text">Deskripsi:</span>
-            <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
-          </div>
-          <button type="submit" class="btn_submit">Submit</button>
-          <button type="button" class="close btn_cancel">cancel</button>
-        </form>
-      </div>
+        </div>
     </div>
-    </div>
-    
-
 </body>
 </html>

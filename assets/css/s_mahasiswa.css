@@ -11,6 +11,21 @@ body {
 a {
   text-decoration: none;
 }
+.pesan {
+  position: absolute;
+  top: 20px; /* Jarak dari atas */
+  left: 50%; /* Posisikan di tengah */
+  transform: translateX(-50%); /* Untuk memastikan di tengah */
+  z-index: 9999; /* Pastikan notifikasi berada di atas elemen lain */
+  width: auto;
+  max-width: 400px;
+  padding: 10px;
+  background-color: rgba(0, 123, 255, 0.7); /* Gaya untuk background */
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .meeting {
   border: none;
   color: #eeeef0;
@@ -241,7 +256,7 @@ main {
 }
 .typing {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   display: flex;
   padding-left: 10px;
@@ -277,7 +292,7 @@ main {
   color: #a2a2d0;
 }
 
-/* Memastikan sidebar berfungsi dengan baik pada berbagai ukuran layar */
+/* STYLE SIDEBAR */
 .sidebar_settings {
   height: 100%;
   width: 0;
@@ -303,4 +318,23 @@ main {
 
 .sidebar_settings a:hover {
   background-color: #575757;
+}
+
+.f-list{
+  position: absolute;
+  width: 100%;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 32px;
+}
+.f-uploads{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 32px;
 }

@@ -1,20 +1,21 @@
 <?php
-// Pastikan file ini memiliki koneksi database
+// Sertakan koneksi database
 include '../api/koneksi.php';
 
-// Periksa apakah ID dikirim melalui URL
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Pastikan ID aman dari SQL Injection
+// Periksa apakah parameter ID dan NID tersedia
+if (isset($_GET['id']) && isset($_GET['nid'])) {
+    $id = intval($_GET['id']); // Pastikan id adalah angka
+    $nid = $_GET['nid']; // Simpan parameter nid dari URL
 
-    // Query untuk menghapus data berdasarkan ID
-    $query = "DELETE FROM mahasiswa WHERE id = ?"; //Query untuk menghapus data dari tabel dosen berdasarkan id
+    // Query untuk menghapus data mahasiswa berdasarkan ID
+    $query = "DELETE FROM mahasiswa WHERE id = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
-            // Berhasil menghapus data, arahkan kembali ke halaman utama
-            header("Location: mahasiswa.php?status=deleted");
+            // Berhasil menghapus data, redirect kembali ke mahasiswa.php dengan nid
+            header("Location: mahasiswa.php?nid=$nid&status=deleted");
             exit();
         } else {
             echo "Gagal menghapus data: " . $stmt->error;
@@ -24,6 +25,7 @@ if (isset($_GET['id'])) {
         echo "Gagal menyiapkan statement: " . $conn->error;
     }
 } else {
-    echo "ID tidak ditemukan.";
+    // Jika parameter ID atau NID tidak ditemukan
+    die("Parameter 'id' atau 'nid' tidak ditemukan!");
 }
 ?>

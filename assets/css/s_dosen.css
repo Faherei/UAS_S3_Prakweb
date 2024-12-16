@@ -145,6 +145,20 @@ body {
   background-color: #575757;
 }
 
+.profile-picture {
+  width: 100px; /* Atur lebar gambar */
+  height: 100px; /* Atur tinggi gambar */
+  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+  margin-bottom: 15px; /* Tambahkan jarak antara gambar dan elemen lain */
+  border: 2px solid white; /* Opsional: Menambahkan border putih */
+}
+
+.sidebar-img {
+  width: 10px;
+  height: 10px;
+}
+
 .meeting {
   border: none;
   color: #eeeef0;

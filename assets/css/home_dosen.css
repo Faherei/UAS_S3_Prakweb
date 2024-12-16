@@ -82,7 +82,7 @@ body {
 /* CSS KALENDER AWAL*/
 .wrapper {
   margin-left: 10px;
-  max-width: 280px;
+  max-width: 500px;
   background: #2a2a3e;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -115,6 +115,7 @@ header .icons span:hover {
   background-color: #222231;
 }
 header .current-date {
+  color: #dee2e6;
   font-size: 1.45rem;
   font-weight: 500;
 }
@@ -168,15 +169,15 @@ header .current-date {
   transform: translate(-50%, -50%);
 }
 .days li.active::before {
-    background-color: #eaebfe;
+  background-color: #eaebfe;
 }
 .days li:not(.active):hover::before {
-    background: #222231;
+  background: #222231;
 }
 /* STYLE EVENT */
 .days li.has-event {
-    background-color: red;  /* Tanggal dengan event diberi warna latar */
-    color: #fff;
+  background-color: red; /* Tanggal dengan event diberi warna latar */
+  color: #fff;
 }
 
 /* Kalender Pop-up Modal */

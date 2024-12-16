@@ -87,16 +87,16 @@ if (!$result) {
                 <?php while ($row = $result->fetch_assoc()): ?> <!-- Loop untuk membaca setiap baris data dalam bentuk array asosiatif -->
                     <tr>
                         <td><div class="circle"></div></td>
-                        <td><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
-                        
+                        <td style="width: 75%;"><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
                         <td class="delete-cell">
-        <!-- Tombol Delete -->
-                            <a href="delete_dosen.php?id=<?php echo $row['id']; ?>"  
-                               onclick="return confirm('Yakin ingin menghapus data ini?');" 
-         class="btn btn-danger btn-sm">Delete</a>  <!-- fungsi untuk menghapus data -->
+                            <!-- Tombol Delete -->
+                            <a href="delete_dosen.php?id=<?php echo $row['id']; ?>"
+                            onclick="return confirm('Yakin ingin menghapus data ini?');"
+                            class="tombul btn btn-danger btn-sm" >
+                                Delete</a><!-- fungsi untuk menghapus data -->
                         </td>
-        <td><a href="mahasiswa.php?nid=<?php echo urlencode($row['nid']); ?>" 
-                         class="btn btn-primary btn-sm">Lihat Mahasiswa</a> <!-- Mengarahkan ke halaman mahasiswa berdasarkan nid dosen. -->
+                        <td><a href="mahasiswa.php?nid=<?php echo urlencode($row['nid']); ?>" 
+                         class="tombul btn btn-primary btn-sm">Lihat Mahasiswa</a> <!-- Mengarahkan ke halaman mahasiswa berdasarkan nid dosen. -->
                         </td>
                     </tr>
                 <?php endwhile; ?>

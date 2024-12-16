@@ -91,6 +91,13 @@ $result = $stmt->get_result();
     <div class="container mt-4">
         <h3>Daftar Mahasiswa - <?php echo htmlspecialchars($dosen_nama); ?></h3>
 
+       <!-- Pesan Status -->
+    <?php if (isset($_GET['status']) && $_GET['status'] == 'deleted'): ?>
+        <div class="alert alert-success">Data berhasil dihapus!</div>
+    <?php endif; ?>
+
+
+
         <!-- Tombol Add -->
         <div class="add-button">
             <button onclick="window.location.href='home_admin.php'" class="btn btn-danger btn-sm">Kembali</button> 
@@ -103,9 +110,9 @@ $result = $stmt->get_result();
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
                         <td><div class="circle"></div></td>
-                        <td><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
+                        <td style="width: 90%;"><span class="nama-tulisan"><?php echo htmlspecialchars($row['nama']); ?></span></td>
                         <td class="delete-cell">
-                            <a href="delete_mahasiswa.php?id=<?php echo $row['id']; ?>" 
+                            <a href="delete_mahasiswa.php?id=<?php echo $row['id']; ?>&nid=<?php echo urlencode($nid); ?>" 
                                onclick="return confirm('Yakin ingin menghapus data ini?');" 
                                class="btn btn-danger btn-sm">Delete</a>
                         </td>

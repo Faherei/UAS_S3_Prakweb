@@ -1,8 +1,9 @@
 <?php
-session_start();
+session_start(); // Pastikan session dimulai di sini
 include '../api/koneksi.php';
 include '../api/verif_mahasiswa.php';
 
+$nim = $_SESSION['nim'];
 // Ambil NID dosen dari session
 $dospem = $_SESSION['id_dosen']; // NID dosen pembimbing yang diambil dari session
 
@@ -36,8 +37,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     <title>Bimbingan Skripsi</title>
     <link rel="shortcut icon" href="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/favicon/1644289115/favicon%20leads.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> <!-- Bootsrap -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- Icon pada kalender -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/s_mahasiswa.css"> <!-- native style-->
     <script src="../assets/js/script_kalendar.js" defer></script> <!-- script kalender-->
     <script src="../assets/js/script_sidebar.js"></script> <!-- script sidebar -->
 
@@ -50,7 +51,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     </a>
     <button type="button" class="settings btn btn-secondary btn-sm" onclick="openSidebar()">&#9776;</button> <!-- Tombol untuk membuka sidebar -->
     <a href="<?php echo $gmeet ?>">
-      <button type="button" class="meeting btn btn-primary btn-sm ">Start Meeting</button>
+      <button type="button" class=" meeting btn btn-primary btn-sm ">Start Meeting</button>
     </a>
   </nav>
   <aside>
@@ -92,6 +93,14 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </aside>
   <main>
+    <?php 
+    // Periksa apakah ada pesan di session dan tampilkan
+    if (isset($_SESSION['message'])) {
+      echo "<div class='pesan alert alert-info'>" . $_SESSION['message'] . "</div>";
+      unset($_SESSION['message']); // Hapus pesan setelah ditampilkan
+    }
+  ?>
+  <script src="../assets/js/script_notif.js"></script>
     <!-- Modal untuk Tambah Event -->
     <div id="event-modal" class="modal">
       <div class="modal-content">
@@ -121,17 +130,47 @@ if ($result && mysqli_num_rows($result) > 0) {
 
     <!-- Sidebar -->
     <div id="sidebar_settings" class="sidebar_settings">
-    <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
-        <ul>
-            <li><a href="#">Profiles</a></li>
-            <li><a href="#">Settingss</a></li>
-            <li><a href="#">Logouts</a></li>
-        </ul>
+      <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
+      <div class="f-list">
+        <!-- TEMPAT FILE DI TAMPILKAN -->
+      <?php
+      // Pastikan session sudah dimulai dan nim tersedia
+      
+      // Query untuk mengambil file yang sudah ada di database
+      $query = "SELECT * FROM files WHERE uploader_id = '$nim'";  // Sesuaikan dengan ID atau session yang relevan
+      $result = mysqli_query($conn, $query);
+      
+      if ($result && mysqli_num_rows($result) > 0) {
+          echo "<ul>";
+          while ($row = mysqli_fetch_assoc($result)) {
+              $file_name = $row['file_name'];  // Nama file yang disimpan
+              $file_path = "/uploads/" . $row['file_name'];  // Lokasi file di server (pastikan sesuai dengan path yang benar)
+              $file_size = $row['file_size'];  // Ukuran file dalam byte
+              
+              echo "<li>";
+              echo "<a href='$file_path' download='$file_path'</a> - " . $file_name . number_format($file_size / 1024, 2) . " KB";
+              echo "</li>";
+          }
+          echo "</ul>";
+      } else {
+          echo "<p>Tidak ada file yang diunggah.</p>";
+      }
+      ?>
+      <!-- Form untuk Upload File -->
+      <div class="f-uploads">
+        <form action="../api/upload_file.php" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="file" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+      </div>
     </div>
-
-    <!-- Fitur Chat -->
-    <div class="chat">
-      <div id="chat-box">
+  </div>
+  
+  <!-- Fitur Chat -->
+  <div class="chat">
+    <div id="chat-box">
         <!-- Tampilan pesan chat akan muncul di sini -->
       </div>
       
