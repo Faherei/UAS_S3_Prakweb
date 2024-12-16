@@ -58,7 +58,9 @@ if ($mahasiswa_id) {
     </div>
 
     <div class="navbar">
-        <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="LeADS">
+    <a href="../index.php">
+      <img src="https://leads.upnvj.ac.id/pluginfile.php/1/theme_edumy/headerlogo1/1644289115/leads%20poppins%20%281%29.png" alt="logo upn">
+    </a>
         <div>
             <button type="button" class="settings btn btn-secondary btn-sm" onclick="openSidebar()">&#9776;</button>
             <a href="<?php echo $gmeet ?>">
@@ -87,7 +89,7 @@ if ($mahasiswa_id) {
               $file_size = $row['file_size'];  // Ukuran file dalam byte
               
               echo "<li>";
-              echo "<a href='$file_path' download='$file_path'</a> - " . $file_name . number_format($file_size / 1024, 2) . " KB";
+              echo "<a </a> - " . $file_name . number_format($file_size / 1024, 2) . " KB";
               echo "</li>";
           }
           echo "</ul>";
@@ -109,18 +111,12 @@ if ($mahasiswa_id) {
 
     <div class="content">
         <div class="chat-box">
-            <div class="messages">
-                <!-- Chat messages akan ditampilkan di sini -->
-            </div>
-            <form method="POST" action="kirim_pesan.php">
-                <div class="input-box">
-                    <input type="hidden" name="mahasiswa_id" value="<?php echo htmlspecialchars($mahasiswa_id); ?>">
-                    <input type="text" name="pesan" placeholder="Tulis pesan..." required>
-                    <button type="submit">Kirim</button>
-                    <a href="home_dosen.php" class="btn btn-danger ms-auto">Kembali</a>
-                </div>
-            </form>
-        </div>
+             <!-- Form untuk mengirim pesan -->
+      <form id="chat-form" class="typing">
+        <textarea id="message" class="chatbox" rows="3" placeholder="Ketik pesan Anda..."></textarea><br>
+        <button class="send btn btn-primary btn-sm" type="submit">Send</button>
+      </form>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

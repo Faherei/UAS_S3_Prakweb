@@ -100,7 +100,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       unset($_SESSION['message']); // Hapus pesan setelah ditampilkan
     }
   ?>
-  <script src="../assets/js/script_notif.js"></script>
+  
     <!-- Modal untuk Tambah Event -->
     <div id="event-modal" class="modal">
       <div class="modal-content">
@@ -133,29 +133,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       <button type="button" class="settings btn btn-secondary btn-sm" onclick="closeSidebar()">&#10005;</button>
       <div class="f-list">
         <!-- TEMPAT FILE DI TAMPILKAN -->
-      <?php
-      // Pastikan session sudah dimulai dan nim tersedia
       
-      // Query untuk mengambil file yang sudah ada di database
-      $query = "SELECT * FROM files WHERE uploader_id = '$nim'";  // Sesuaikan dengan ID atau session yang relevan
-      $result = mysqli_query($conn, $query);
-      
-      if ($result && mysqli_num_rows($result) > 0) {
-          echo "<ul>";
-          while ($row = mysqli_fetch_assoc($result)) {
-              $file_name = $row['file_name'];  // Nama file yang disimpan
-              $file_path = "/uploads/" . $row['file_name'];  // Lokasi file di server (pastikan sesuai dengan path yang benar)
-              $file_size = $row['file_size'];  // Ukuran file dalam byte
-              
-              echo "<li>";
-              echo "<a href='$file_path' download='$file_path'</a> - " . $file_name . number_format($file_size / 1024, 2) . " KB";
-              echo "</li>";
-          }
-          echo "</ul>";
-      } else {
-          echo "<p>Tidak ada file yang diunggah.</p>";
-      }
-      ?>
       <!-- Form untuk Upload File -->
       <div class="f-uploads">
         <form action="../api/upload_file.php" method="POST" enctype="multipart/form-data">
