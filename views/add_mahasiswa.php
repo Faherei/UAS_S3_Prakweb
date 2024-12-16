@@ -16,7 +16,29 @@ $email = isset($_POST['email']) ? mysqli_real_escape_string($conn, htmlentities(
 $username = isset($_POST['username']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["username"])))) : "";
 $password = isset($_POST['password']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["password"])))) : "";
 $dosenid = isset($_POST['dosenid']) ? mysqli_real_escape_string($conn, htmlentities(strip_tags(trim($_POST["dosenid"])))) : "";
-$nid = $_SESSION['nid'];
+
+
+// Siapkan query menggunakan prepared statement
+// $dosenq = $conn->prepare("SELECT nid, nama FROM dosen");
+// if ($dosenq) {
+//     $dosenq->execute(); // Eksekusi query
+//     $result_dosen = $dosenq->get_result(); // Dapatkan hasil query
+
+//     if ($result_dosen->num_rows > 0) {
+//         echo "Data ditemukan: " . $result_dosen->num_rows . " baris.";
+//     } else {
+//         echo "Tidak ada data dosen.";
+//     }
+// } else {
+//     die("Query gagal disiapkan: " . $conn->error); // Hentikan jika query gagal
+// }
+
+
+
+
+
+// ambil data mahasiswa
+
 
     // Validasi input tidak boleh kosong
     if (empty($id) || empty($nama) || empty($nim) || empty($fakultas) || empty($prodi) || empty($email) || empty($username) || empty($password) || empty($dosenid)) {
@@ -121,10 +143,52 @@ $nid1 = isset($_GET['nid']) ? $_GET['nid'] : '';
     <input type="password" id="password" name="password" class="form-control" value="<?php echo isset($password) ? $password : ''; ?>" required>
 </div>
 
+<!--
 <div class="mb-3">
     <label for="dosenid" class="form-label">Dosen ID</label>
     <input type="text" id="dosenid" name="dosenid" class="form-control" value="<?php echo isset($dosenid) ? $dosenid : ''; ?>" required>
 </div>
+-->
+
+
+
+<!-- DOSEN 2 -->
+<?php
+// Query SQL untuk mengambil data dosen
+$dosen_query = "SELECT nid, nama FROM dosen";
+$result_dosen = mysqli_query($conn, $dosen_query); // Eksekusi query
+
+// Periksa apakah query berhasil
+if ($result_dosen) {
+    ?>
+    <div class="mb-3">
+        <label for="dosenid" class="form-label">Dosen</label>
+        <select id="dosenid" name="dosenid" class="form-control" required>
+            <option value="">Pilih Dosen</option> <!-- Opsi default -->
+            <?php
+            if (mysqli_num_rows($result_dosen) > 0) {
+                while ($row = mysqli_fetch_assoc($result_dosen)) {
+                    $nid = htmlspecialchars($row['nid']);
+                    $nama = htmlspecialchars($row['nama']);
+                    ?>
+                    <option value="<?php echo $nid; ?>" 
+                            <?php echo (isset($selected_nid) && $selected_nid == $nid) ? 'selected' : ''; ?>>
+                        <?php echo $nama; ?>
+                    </option>
+                    <?php
+                }
+            } else {
+                echo '<option value="">Tidak ada dosen tersedia</option>';
+            }
+            ?>
+        </select>
+    </div>
+    <?php
+} else {
+    die("Query gagal dijalankan: " . mysqli_error($conn));
+}
+?>
+
 
 
          <!-- VALUE Menampilkan kembali data input jika ada kesalahan -->
